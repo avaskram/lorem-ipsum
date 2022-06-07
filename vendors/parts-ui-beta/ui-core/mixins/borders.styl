@@ -1,0 +1,140 @@
+
+
+///// borders
+//////// gray color
+border-gray(size = null)
+  if size == null
+    size = 1px
+  border size solid $gray-border
+
+border-gray-top(size = null)
+  if size == null
+    size = 1px
+  border-top size solid $gray-border
+border-gray-bottom(size = null)
+  if size == null
+    size = 1px
+  border-bottom size solid $gray-border
+border-gray-left(size = null)
+  if size == null
+    size = 1px
+  border-left size solid $gray-border
+border-gray-right(size = null)
+  if size == null
+    size = 1px
+  border-right size solid $gray-border
+
+
+//////// theme color
+border-theme(size)
+  border size solid $theme-color
+border-theme-top(size)
+  border-top size solid $theme-color
+border-theme-bottom(size)
+  border-bottom size solid $theme-color
+border-theme-left(size)
+  border-left size solid $theme-color
+border-theme-right(size)
+  border-right size solid $theme-color
+
+//////// info color
+border-info(size)
+  border size solid $info-color
+border-info-top(size)
+  border-top size solid $info-color
+border-info-bottom(size)
+  border-bottom  size solid $info-color
+border-info-left(size)
+  border-left  size solid $info-color
+border-info-right(size)
+  border-right size solid $info-color
+
+//////// success color
+border-success(size)
+  border size solid $success-color
+border-success-top(size)
+  border-top  size solid $success-color
+border-success-bottom(size)
+  border-bottom  size solid $success-color
+border-success-left(size)
+  border-left  size solid $success-color
+border-success-right(size)
+  border-right size solid $success-color
+
+//////// alert color
+border-alert(size)
+  border size solid $alert-color
+border-alert-top(size)
+  border-top size solid $alert-color
+border-alert-bottom(size)
+  border-bottom size solid $alert-color
+border-alert-left(size)
+  border-left size solid $alert-color
+border-alert-right(size)
+  border-right size solid $alert-color
+
+//////// warning color
+border-warning(size)
+  border size solid $warning-color
+border-warning-top(size)
+  border-top size solid $warning-color
+border-warning-bottom(size)
+  border-bottom size solid $warning-color
+border-warning-left(size)
+  border-left size solid $warning-color
+border-warning-right(size)
+  border-right size solid $warning-color
+
+
+
+//////// light color
+border-light()
+  border $border-light
+border-light-top()
+  border-top $border-light
+border-light-bottom()
+  border-bottom $border-light
+border-light-left()
+  border-left $border-light
+border-light-right()
+  border-right $border-light
+
+//////// dark color
+border-dark()
+  border $border-dark
+border-dark-top()
+  border-top $border-dark
+border-dark-bottom()
+  border-bottom $border-dark
+border-dark-left()
+  border-left $border-dark
+border-dark-right()
+  border-right $border-dark
+
+//////// alpha color
+border-alpha(size,c,a)
+  border size solid alpha(c,a)
+
+border-alpha-top(size,c,a)
+  border-top size solid alpha(c,a)
+
+border-top-alpha(size,c,a)
+  border-alpha-top(size,c,a)
+
+border-alpha-bottom(size,c,a)
+  border-bottom size solid alpha(c,a)
+
+border-bottom-alpha(size,c,a)
+  border-alpha-bottom(size,c,a)
+
+border-alpha-left(size,c,a)
+  border-left size solid alpha(c,a)
+
+border-left-alpha(size,c,a)
+  border-alpha-left(size,c,a)
+
+border-alpha-right(size,c,a)
+  border-right size solid alpha(c,a)
+
+border-right-alpha(size,c,a)
+  border-alpha-right(size,c,a)

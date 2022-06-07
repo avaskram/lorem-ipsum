@@ -1,0 +1,14 @@
+{
+  "content": {
+    "head": {
+      "url": "https://loremipsum.net",
+      "title": "Lorem Ipsum",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": {
+        "url": "./images/og-image-940x580.jpg",
+        "width": "470px",
+        "height": "290px"
+      }
+    }
+  }
+}

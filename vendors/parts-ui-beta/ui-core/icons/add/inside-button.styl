@@ -1,0 +1,31 @@
++theme(icon)
+  +theme("btn &")
+    // top -1px
+    height $button-size - (2*$rem-px)
+    vertical-align top
+    margin-top 1px
+    &--left
+      margin-left -.2em
+    &--right
+      margin-right -.2em
+    &--edge
+      margin-x(0)
+      top 50%
+
+  for size in $button-sizes
+    .{$theme}-btn--{size} &
+        $icon-current-size = ($button-size-)+(size)
+        $icon-orig-size = $icon-current-size - (2*$rem-px)
+        height $icon-orig-size
+
+
+
+  +theme("btn--thick &")
+    margin-top -1px
+    margin-bottom -1px
+
+    &--left
+      margin-left -.3em
+
+    &--right
+      margin-right -.3em

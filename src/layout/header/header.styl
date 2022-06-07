@@ -1,0 +1,97 @@
++theme(header)
+  fullsize-fixed-top()
+  z-index: 40
+  transition: background .3s ease 0s
+
+  +before()
+    fullsize()
+    background-color: alpha(#10101D,.9)
+    transition transform .3s $quint 0s, background .2s ease 0s
+    transform translateY(0px)
+
+  &__container
+    container-base()
+    container-default();
+    display: flex
+    flex-direction row
+    align-items: center
+    justify-content: space-between
+    height: 100px;
+    transition transform .3s $quint 0s
+    transform translateY(0px)
+
+  &__logo
+    position relative
+    margin-right 50px
+
+  &__nav
+    flex-row()
+    margin: 0
+
+  &__item
+    height: 100%
+    flex-col-md()
+    margin-right 60px
+    +last()
+      margin-right 0
+
+  &__link
+    display: block
+    font-size 13px
+    text-transform uppercase
+    text-light()
+    transition color .3s $quint 0s
+    &:hover
+      text-theme()
+    &--current
+      text-theme()
+
+  &--sticked
+    &:before
+      transform translateY(-40px)
+    +child-el(container)
+      transform translateY(-20px)
+  +media(md)
+    &:before
+      transform none
+    &--sticked
+      &:before
+        transform none
+      +child-el(container)
+        transform none
+    &__container
+      height 50px
+      transform none
+
+    &__logo
+      max-width 160px
+
+    &__nav
+      position absolute
+      bg-alpha(#10101D,.96)
+      pos-x(0)
+      top 100%
+      padding-x(40px)
+      padding-bottom 50px
+      padding-top 30px
+      display block
+      text-align center
+      invisible()
+      transform-origin: top center
+      transform: scaleY(.5)
+      transition: transform .3s $quint 0s, opacity .3s ease 0s
+
+
+    &__item
+      margin-x(0)
+      margin-y(20px)
+    &__link
+      padding-y(5px)
+
+    +active()
+      &:before
+        background-color: alpha(#10101D,.96)
+
+      +child-el(nav)
+        visible()
+        transform: scaleY(1);

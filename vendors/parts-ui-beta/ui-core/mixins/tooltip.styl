@@ -1,0 +1,40 @@
+tooltip-base()
+	display block
+	min-width 100%
+	transition opacity .2s $quint 0s
+	invisible()
+
+tooltip(pos)
+	if pos == top
+		bottom 100%
+		top auto
+		padding-bottom $tooltip-offset
+		centering-x()
+
+		+child-el(section)
+			translated(0,-1*($tooltip-offset),0)
+
+	if pos == bottom
+		top 100%
+		bottom auto
+		padding-top $tooltip-offset
+		centering-x()
+		+child-el(section)
+			translated(0,$tooltip-offset,0)
+
+	if pos == left
+		right 100%
+		left auto
+		padding-right $tooltip-offset
+		centering-y()
+		+child-el(section)
+			translated(-1*($tooltip-offset),0,0)
+
+	if pos == right
+		left 100%
+		right auto
+		padding-left $tooltip-offset
+		centering-y()
+
+		+child-el(section)
+			translated($tooltip-offset,0,0)

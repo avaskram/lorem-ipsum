@@ -1,0 +1,52 @@
++theme(form)
+  &__container
+    position relative
+    transform translate3d(0,0,0) scale(1) rotate(0.000001deg)
+    transition opacity .34s ease 0s, transform .55s $quint 0s
+
+  &__title
+    title()
+
+  &__reset
+    cursor pointer
+
+  &__message
+    width 100%
+    flex 1
+
+  &__response
+    invisible()
+    fullsize()
+    flex-row-md-center()
+    text-align center
+    transform translate3d(0,0,0.000001px) scale(1.2222) rotate(0.000001deg)
+    transition opacity .27s $quint 0s, transform .34s $quint 0s
+
+
+  &--error
+  &--success
+    +child-el(container)
+      invisible()
+      transform translate3d(0,0,0) scale(.777777) rotate(0.000001deg)
+      transition opacity .27s ease 0s, transform .34s $quint 0s
+
+    +child-el(response)
+      transition opacity .34s $quint 0s, transform .55s $quint 0s
+
+
+  &--success
+    +child-el(response)
+      &--success
+        visible()
+        transform translate3d(0,0,0.000001px) scale(1) rotate(0.000001deg)
+
+      &--error
+        display none
+
+  &--error
+    +child-el(response)
+      &--error
+        visible()
+        transform translate3d(0,0,0) scale(1) rotate(0.000001deg)
+      &--success
+        display none

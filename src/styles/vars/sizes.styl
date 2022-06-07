@@ -1,0 +1,162 @@
+//////// scale guidline
+$root-size = 16px
+$rem = 1rem
+$rem-px = $rem/16
+$rem-scale = 2*$rem-px
+
+
+$rem-lg = $rem + (1*$rem-scale)
+$rem-xl = $rem + (2*$rem-scale)
+$rem-xxl = $rem + (3*$rem-scale)
+$rem-max = $rem + (4*$rem-scale)
+
+$rem-md = $rem - (1*$rem-scale)
+$rem-sm = $rem - (2*$rem-scale)
+$rem-xs = $rem - (3*$rem-scale)
+$rem-xxs = $rem - (4*$rem-scale)
+
+//////// border radius
+$radius = 5px
+$radius-scale = 1px
+$radius-md = ($radius - $radius-scale)
+$radius-sm = ($radius-md - $radius-scale)
+$radius-xs = ($radius-sm - $radius-scale)
+$radius-xxs = ($radius-xs - $radius-scale)
+$radius-lg = ($radius + $radius-scale)
+$radius-xl = ($radius-lg + $radius-scale)
+$radius-xxl = ($radius-xl + $radius-scale)
+
+
+///// headings
+$heading-scale = $rem-scale*2
+$size-lead = 3.375rem
+$size-h1 = 3rem
+$size-h2 = 2.25rem
+$size-h3 = 2rem
+$size-h4 = 1.5rem
+$size-h5 = 1.333rem
+$size-h6 = 1rem
+
+///// headings
+$rem-lead = $size-lead
+$rem-h1 = $size-h1
+$rem-h2 = $size-h2
+$rem-h3 = $size-h3
+$rem-h4 = $size-h4
+$rem-h5 = $size-h5
+$rem-h6 = $size-h6
+
+///// text
+$text-indent =  1.55em
+$text-indent-top = .55em
+$line-height-base = $text-indent
+
+//// title
+$title-line-height = 1.25em
+$title-margin-top = 0.625em
+$title-margin-bottom = 0.625em
+$title-thickness = 700
+
+///// container
+$container-padding = 20px
+$container-size = 1170px + ($container-padding*2)
+$container-size-sm = 530px + ($container-padding*2)
+$container-size-md = 768px + ($container-padding*2)
+$container-size-lg = 1242px + ($container-padding*2)
+$container-size-xl = 1340px + ($container-padding*2)
+
+
+///// elements basis
+$input-radius = 3px
+$input-radius-md = 3px
+$input-radius-sm = 0
+$input-radius-xs = 0
+$input-radius-lg = 0
+$input-radius-xl = 0
+
+
+//////// inputs sizes
+$input-scale = 0.4rem
+$input-size = 3rem
+$input-size-md = $input-size -($input-scale)
+$input-size-sm = $input-size - (2*$input-scale)
+$input-size-xs = $input-size - (3*$input-scale)
+$input-size-lg = $input-size + (1*$input-scale)
+$input-size-xl = $input-size + (2*$input-scale)
+$input-size-xxl = $input-size + (3*$input-scale)
+
+$textarea-size = 3*$input-size
+$input-space-scale = 0.8
+$input-space = ($input-size*$input-space-scale)*$input-scale
+$input-check-size = 18px
+$input-check-size-lg = $input-check-size*2
+
+//////// buttons sizes
+$button-size = $input-size
+$button-size-lg = $input-size-lg
+$button-size-xl = $input-size-xl
+$button-size-xxl = $input-size-xxl
+$button-size-md = $input-size-md
+$button-size-sm = $input-size-sm
+$button-size-xs = $input-size-xs
+$button-padding = $rem
+
+$button-radius = $input-radius
+$button-radius-xs = $input-radius-xs
+$button-radius-md = $input-radius-md
+$button-radius-sm = $input-radius-sm
+$button-radius-lg = $input-radius-lg
+$button-radius-xl = $input-radius-xl
+$button-radius-xxl = $input-radius-xl
+
+///// card styles
+$card-radius = $radius
+$card-radius-rounded = $radius-xl*5
+$card-scale = 0
+$card-padding-x = ($size-lead/2)*(.9+$heading-scale)
+$card-padding-y = ($size-lead/2)*(.8+$heading-scale)
+$card-padding = ($card-padding-y - $card-scale) ($card-padding-x - $card-scale)
+
+$card-padding-paper = ($card-padding-y*2.5) (($card-padding-y*2.5) - $card-scale)
+$card-padding-lg = ($card-padding-y*1.5) (($card-padding-y*2) - $card-scale)
+$card-padding-md = ($card-padding-y*.75) (($card-padding-y*.75) - $card-scale)
+$card-padding-sm = ($card-padding-y*.5) (($card-padding-y*.5) - $card-scale)
+$card-padding-xs = ($card-padding-y*.25) (($card-padding-y*.25) - $card-scale)
+
+
+$card = {
+  padding: {
+    base:{
+      x: $card-padding-x,
+      y: $card-padding-y
+    },
+    paper: {
+      x: ($card-padding-x*2.1),
+      y: ($card-padding-y*2.5)
+    }
+    lg: {
+      x: ($card-padding-x*2),
+      y: ($card-padding-y*1.9)
+    },
+    md: {
+      x: ($card-padding-x*.8),
+      y: ($card-padding-y*.8)
+    },
+    sm: {
+      x: ($card-padding-x*.5),
+      y: ($card-padding-y*.5)
+    },
+    xs: {
+      x: ($card-padding-x*.25),
+      y: ($card-padding-y*.25)
+    }
+  }
+}
+
+////// rectangle types
+$proportions = {
+  long: 32%,
+  rect: 50%,
+  album: 68%,
+  square: 100%
+}

@@ -1,0 +1,126 @@
+/// fullsizes
+///// base
+fullsize-base()
+  pos-x(0)
+  pos-y(0)
+
+///// fullsize with absolute position
+fullsize-x()
+  position absolute
+  pos-x(0)
+
+fullsize-y()
+  position absolute
+  pos-y(0)
+
+fullsize()
+  position absolute
+  fullsize-base()
+
+fullsize-width()
+  fullsize-x()
+
+fullsize-height()
+  fullsize-y()
+
+fullsize-scale(x,y = null)
+  position absolute
+  if y == null
+    pos-x(x)
+    pos-y(x)
+
+  else
+    pos-x(x)
+    pos-y(y)
+
+fullsize-scale-x(x)
+  position absolute
+  pos-x(x)
+
+fullsize-scale-y(y)
+  position absolute
+  pos-y(y)
+
+
+///// fullsize sides
+fullsize-top()
+  fullsize-width()
+  top 0
+  bottom auto
+
+fullsize-bottom()
+  fullsize-width()
+  bottom 0
+  top auto
+
+fullsize-left()
+  fullsize-y()
+  left 0
+  right auto
+
+fullsize-right()
+  fullsize-y()
+  right 0
+  left auto
+
+
+///// fullsize with fixed position
+fullsize-fixed()
+  position fixed
+  fullsize-base()
+
+fullsize-fixed-x()
+  position fixed
+  pos-x(0)
+
+fullsize-fixed-y()
+  position fixed
+  pos-y(0)
+
+
+///// sides
+fullsize-top-fixed()
+  fullsize-fixed-x()
+  top 0
+  bottom auto
+
+fullsize-bottom-fixed()
+  fullsize-fixed-x()
+  bottom 0
+  top auto
+
+fullsize-left-fixed()
+  fullsize-fixed-y()
+  left 0
+  right auto
+
+fullsize-right-fixed()
+  fullsize-fixed-y()
+  right 0
+  left auto
+
+///// alternative names
+fullsize-fixed-top()
+  fullsize-top-fixed()
+
+fullsize-fixed-bottom()
+  fullsize-bottom-fixed()
+
+fullsize-fixed-left()
+  fullsize-left-fixed()
+
+fullsize-fixed-right()
+  fullsize-right-fixed()
+
+
+///// fullsize ang background cover
+fullsize-bg()
+  fullsize()
+  bg-cover()
+
+fullsize-bg-fixed()
+  fullsize-fixed()
+  bg-cover()
+
+fullsize-fixed-bg()
+  fullsize-bg-fixed()

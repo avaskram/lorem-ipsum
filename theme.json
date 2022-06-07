@@ -1,0 +1,19 @@
+{
+	"theme": {
+		"name": "Lorem Ipsum",
+		"classNames": {
+			"active": "active",
+			"inactive": "inactive"
+		},
+		"prefix": "lorem",
+		"files": {
+			"name": "lorem"
+		},
+		"directories": {
+			"fonts": "./fonts/",
+			"images": "./images/",
+			"css": "./css/",
+			"js": "./js/"
+		}
+	}
+}

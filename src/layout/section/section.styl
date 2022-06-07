@@ -1,0 +1,40 @@
++theme(section)
+  padding-top 120px
+  padding-bottom 150px
+  position relative
+  overflow hidden
+
+  &__container
+    container-base()
+    container-default()
+
+  &__bg
+    fullsize-bg()
+
+  &__title
+    title-base()
+    text-caps()
+    text-h2()
+
+  &__text
+    text-lg()
+    margin-top 30px
+
+  &__highlight
+    text-theme()
+
+  &--center
+    text-align: center
+  &--dark
+    bg-dark()
+    text-light()
+
+    +child-el(text)
+      color #BBBBBB
+
+  +media(md)
+    padding-y(60px)
+    &__title
+      text-h3()
+    &__text
+      text-base()

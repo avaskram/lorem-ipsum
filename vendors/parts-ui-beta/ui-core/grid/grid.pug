@@ -1,0 +1,25 @@
+mixin row(mod,breakpoint)
+  - var modifiers = ''
+  
+  if mod != '' & mod != undefined
+    - modifiers = mod
+    
+  - var collapse = ''
+  
+  if breakpoint != '' & breakpoint != undefined
+    - collapse = 'parts-collapse-'+breakpoint
+
+  .parts-row(class=modifiers+" "+collapse)&attributes(attributes)
+    block
+
+
+mixin col(mod,breakpoint)
+  - var modifiers = ''
+  if mod != '' & mod != undefined
+    - modifiers = mod
+    
+  - var collapse = ''
+  if breakpoint != '' & breakpoint != undefined
+    - collapse = ' part-collapse-'+breakpoint
+  .col(class=modifiers+collapse)&attributes(attributes)
+    block

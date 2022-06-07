@@ -1,0 +1,123 @@
+/// card section
+card-section()
+	position relative
+	display block
+	background-color #fff
+	flex-grow 1
+	padding $card-padding
+	border-bottom 1px solid $card-border-color
+	clear-border-bottom()
+
+card-section-sizes(sizes)
+	for size in sizes
+		&--{size}
+			padding $+(card-padding-)+(size)
+
+card-section-types(types)
+	for type in types
+		if type == content
+			&--content
+				flex-col()
+
+		if type == inside
+			&--inside
+				fullsize()
+				flex-col()
+				border 0
+				background-color transparent
+
+
+		if type == bottom
+			&--bottom
+				justify-content flex-end
+
+		if type == center
+			&--center
+				justify-content center
+
+		if type == joint
+			&--joint
+				border-bottom 0
+				^[0]--x &
+					border-right 0
+
+		if type == image
+			&--image
+				bg-cover()
+				position relative
+				z-index 1
+				overflow hidden
+				flex-grow 0
+
+				&,
+    		^[0]--x &
+					border 0
+
+				^[0]--border &
+					margin -1px
+
+		if type == bg
+			&--bg
+				bg-cover()
+				overflow hidden
+				z-index 1
+				flex-grow 0
+
+				+before()
+					fullsize()
+					transform translateZ(0)
+					background-color #000
+					opacity .5
+					transition opacity .3s ease 0s
+
+
+		// if type == overlay
+		// 	&--overlay
+		// 		+before()
+		// 			fullsize()
+		// 			transform translateZ(0)
+		// 			background-color #000
+		// 			opacity .5
+		// 			transition opacity .3s ease 0s
+
+		if type == overlay
+			&--overlay
+				fullsize()
+				flex-col()
+				border 0
+				background-color transparent
+
+		if type == compact
+			&--compact
+				padding 0
+
+
+		if type == stamp
+			&--stamp
+				box-shadow $shadow-md inset
+
+
+
+card-section-colors(mods)
+	for mod in mods
+		if mod != info && mod != success && mod != warning && mod != alert && mod != mute && mod != 'theme'
+			if mod == transparent
+				&--transparent
+					background-color transparent
+			else
+				&--{mod}
+					background-color $+(mod)
+		else
+			&--{mod}
+				background-color $+(mod)+(-color)
+
+card-section-proportions(mods)
+	for mod in $card-section-proportions
+		$orig-proportion = $proportions[mod]
+
+		&--{mod}
+			padding-bottom $orig-proportion
+			paddings-top(0)
+
+			^[0]--x &
+				padding-bottom ($orig-proportion/2)

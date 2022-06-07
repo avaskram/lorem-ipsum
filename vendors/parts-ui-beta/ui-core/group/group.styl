@@ -1,0 +1,85 @@
++theme(group)
+  flex-row()
+  > *
+    flex 1
+
+  ///// buttons
+  +theme(btn)
+    margin-left -1px
+
+    &--thick
+      margin-left -2px
+
+    &:not(:first-child):not(:last-child)
+      border-radius 0
+
+    +after()
+      position absolute
+      top -1px
+      bottom -1px
+      right 0
+      background-color alpha(#000,.1)
+      width 1px
+
+    &--outline
+      &:after
+        display none
+
+    +first()
+      border-top-right-radius 0
+      border-bottom-right-radius 0
+      margin-left 0
+
+      +last()
+        border-radius $button-radius
+
+    +last()
+      border-top-left-radius 0
+      border-bottom-left-radius 0
+      &:after
+        display none
+
+      +first()
+        border-radius $button-radius
+
+  ///// inputs
+  +theme(input)
+    margin-left -1px
+
+    &--thick
+      margin-left -2px
+
+    input,
+    textarea,
+    /.{$theme}-selectbox__field
+      position relative
+      &:active
+      &:focus
+        z-index 1
+
+    &:not(:first-child):not(:last-child)
+      input,
+      textarea,
+      .{$theme}-selectbox__field
+        border-radius 0
+
+    +first()
+      margin-left 0
+      input,
+      textarea
+      .{$theme}-selectbox__field
+        border-top-right-radius 0
+        border-bottom-right-radius 0
+
+    +last()
+      input,
+      textarea,
+      .{$theme}-selectbox__field
+        border-top-left-radius 0
+        border-bottom-left-radius 0
+
+
+
+
+  &--block
+    width 100%

@@ -1,0 +1,16 @@
+.bg
+  for color in $colors.state
+    &-{color}
+      bg-{color}()
+
+  for color in $colors.dark
+    &-{color}
+      bg-{color}()
+
+  for color in 'theme' 'gray' 'light'
+    &-{color}
+      bg-{color}()
+
+  for size in cover 100
+    &-{size}
+      bg-{size}()

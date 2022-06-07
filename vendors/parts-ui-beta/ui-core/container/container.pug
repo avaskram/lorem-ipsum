@@ -1,0 +1,17 @@
+mixin container(...mods)
+  - var reg = /([А-ЯЁа-яё]+)\s([А-ЯЁа-яё]+)/
+  - var name = themePrefix+"-container"
+  - var modifier = []
+
+  if mods != undefined
+    for mod in mods
+      - modifier.push(name+mod)
+    
+    div(class=name class=modifier)&attributes(attributes)
+      if block
+        block
+          
+  else
+    div(class=name)&attributes(attributes)
+      if block
+        block

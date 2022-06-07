@@ -1,0 +1,112 @@
++theme(footer)
+  padding-y(30px)
+  bg-mute()
+  text-light()
+
+  &__container
+    container-base()
+    container-default()
+    display flex
+    align-items center
+
+  &__copyright
+    flex 1
+    font-size 13px
+
+  &__payments
+  &__contacts
+    display flex
+    align-items center
+    flex 1
+
+  &__payments
+    position relative
+    justify-content center
+    padding-x(40px)
+
+    &:after
+    &:before
+      position absolute
+      height 18px
+      width 1px
+      background-color #C3C3C3
+      top 50%
+      margin-top -9px
+
+    +before()
+      left 0
+    +after()
+      right 0
+
+    +child-el(item)
+      clear-margin-x()
+
+
+  &__contacts
+    justify-content flex-end
+
+    +child-el(icon)
+      width auto
+      height auto
+      font-size 24px
+
+  &__item
+    color #C3C3C3
+    font-size 13px
+    flex-row-md()
+    white-space nowrap
+    margin-x(20px)
+    clear-margin-right()
+
+    a&
+      text-light()
+      &:hover
+        text-theme()
+
+  &__icon
+    square(20px)
+    text-theme()
+    font-size 20px
+    flex-col-md-center()
+    margin-right 10px
+
+  +media(lg)
+    &__container
+      flex-wrap: wrap;
+    &__payments
+    &__contacts
+    &__copyright
+      min-width: 100%
+      text-align: center
+      padding-y(20px)
+      justify-content: center;
+
+    &__payments
+      &:after
+      &:before
+        display none
+
+  +media(sm)
+
+    &__copyright
+      text-align left
+    &__payments
+      display block
+      padding-x(0)
+      margin-x(auto)
+      border-top 1px solid lighten($dark-mute,5)
+      border-bottom 1px solid lighten($dark-mute,5)
+
+
+    &__contacts
+      flex-wrap wrap
+      display block
+
+
+    &__item
+      margin-x(auto)
+      margin-y(10px)
+
+      &:first-child
+      &:last-child
+        margin-x(auto)

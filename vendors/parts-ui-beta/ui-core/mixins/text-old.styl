@@ -1,0 +1,340 @@
+/// text styles mixins
+///// SIZES
+text-base()
+  font-size $rem
+
+text-max()
+  font-size $rem-max
+
+text-lead()
+  font-size $size-lead
+
+text-xxl()
+  font-size $rem-xxl
+
+text-xl()
+  font-size $rem-xl
+
+text-lg()
+  font-size $rem-lg
+
+text-md()
+  font-size $rem-md
+
+text-sm()
+  font-size $rem-sm
+
+text-xs()
+  font-size $rem-xs
+
+text-xxs()
+  font-size $rem-xxs
+
+text-h1()
+  font-size $size-h1
+
+text-h2()
+  font-size $size-h2
+
+text-h3()
+  font-size $size-h3
+
+text-h4()
+  font-size $size-h4
+
+text-h5()
+  font-size $size-h5
+
+text-h6()
+  font-size $size-h6
+
+
+///// THICKNESS
+/////// thin / hairline
+text-thin()
+  font-weight 100
+
+/////// extra light / ultra light
+text-x-light()
+  font-weight 200
+
+//////// light
+text-light()
+  font-weight 300
+
+//////// normal / regular
+text-regular()
+  font-weight 400
+
+//////// medium
+text-medium()
+  font-weight 500
+
+//////// demi / semibold
+text-demi()
+  font-weight 600
+
+//////// bold
+text-bold()
+  font-weight 700
+
+//////// extra bold / ultra bold
+text-x-bold()
+  font-weight 800
+
+//////// black (heavy)
+text-black()
+  font-weight 900
+
+///// FAMILIES
+//////// base
+text-font-base()
+  font-family $font-base
+
+//////// title font
+text-font-title()
+  font-family $font-title
+
+//////// note font
+text-font-note()
+  font-family $font-note
+
+//////// note font
+text-font-code()
+  font-family $font-code
+
+//////// note font
+text-font-article()
+  font-family $font-article
+
+//////// price font
+text-font-price()
+  font-family $font-price
+
+///// COLORS
+//////// base
+text-color-base()
+  color $base-color
+
+//////// theme corporate color
+text-color-theme()
+  color $theme-color
+text-theme()
+  color $theme-color
+
+//////// states
+text-color-info()
+  color $info-color
+
+text-color-success()
+  color $success-color
+
+text-color-warning()
+  color $warning-color
+
+text-color-alert()
+  color $alert-color
+
+
+text-info()
+  color $info-color
+
+text-success()
+  color $success-color
+
+text-warning()
+  color $warning-color
+
+text-alert()
+  color $alert-color
+
+
+//////// tones
+text-color-purple()
+  color $purple
+
+text-color-orange()
+  color $orange
+
+text-color-tale()
+  color $tale
+
+text-color-brown()
+  color $brown
+
+
+//////// tones
+text-purple()
+  color $purple
+
+text-orange()
+  color $orange
+
+text-tale()
+  color $tale
+
+text-brown()
+  color $brown
+
+
+//////// gray
+text-color-gray()
+  color $gray-text
+
+//////// gray light
+text-color-gray-light()
+  color $gray-light
+
+//////// gray md
+text-color-gray-md()
+  color $gray-md
+
+//////// gray dark
+text-color-dark()
+  color $dark-color
+
+//////// gray dark
+text-color-mute()
+  color $gray-dark
+
+
+//////// gray
+text-gray()
+  color $gray-text
+
+//////// gray light
+text-gray-light()
+  color $gray-light
+
+//////// gray md
+text-gray-md()
+  color $gray-md
+
+//////// gray dark
+text-dark()
+  color $dark-color
+
+//////// mute
+text-mute()
+  text-color-mute()
+
+//////// gray tone
+text-color-tone()
+  color $gray-tone
+
+
+//////// gray tone
+text-gray-tone()
+  color $gray-tone
+
+
+
+//////// light / white
+text-color-light()
+  color #fff
+
+
+///// STYLES
+/////// letter-spacing
+text-space()
+  letter-spacing .1em
+text-space-xs()
+  letter-spacing .02em
+text-space-sm()
+  letter-spacing .05em
+text-space-md()
+  letter-spacing .15em
+text-space-lg()
+  letter-spacing .2em
+text-space-xl()
+  letter-spacing .3em
+
+
+/////// text-align
+text-center()
+  text-align center
+text-left()
+  text-align left
+text-right()
+  text-align right
+
+
+
+////// text capitalize
+text-caps()
+  text-transform uppercase
+
+////// text capitalize cancel
+text-nocaps()
+  text-transform none
+
+//////// italic
+text-italic()
+  font-style italic
+
+//////// normal (no italic)
+text-normal()
+  font-style normal
+
+
+///// text element indents
+text-indent()
+  line-height $line-height-base
+  margin-bottom $text-indent
+  margin-top $text-indent-top
+  clear-margin-y()
+
+///// TEXT styles
+/////// text dots overflow
+text-dots()
+  text-overflow ellipsis
+  overflow hidden
+  white-space nowrap
+
+text-hidden()
+  text-dots()
+
+///// text dots overflow in several strings (works only in webkit browsers)
+text-preview(size,strings)
+  overflow hidden
+  text-overflow ellipsis
+  display -webkit-box
+  -webkit-line-clamp strings
+  /* autoprefixer: off */
+  -webkit-box-orient vertical
+  /* autoprefixer: on */
+  max-height size
+
+////// text colored bg
+text-fill(bg,c)
+  background-color bg
+  color c
+
+////// text height
+text-height(h)
+  height h
+  line-height h
+
+////// set same styles for element and included paragraph
+text-style()
+  &,
+  & > p
+    {block}
+
+text-rendering()
+  -webkit-text-size-adjust 100%
+  text-size-adjust 100%
+  -webkit-font-smoothing antialiased !important
+  text-rendering optimizeLegibility
+
+
+
+
+
+// //////// light / white
+// text-fill-light()
+//   background-color #fff
+//
+// //////// light / white
+// text-fill-dark()
+//   bg-dark()

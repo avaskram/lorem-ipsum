@@ -1,0 +1,11 @@
+@require 'burger-logic'
+
++theme(burger)
+	+burger(24,2px,6px,$light-color)
+		padding-x($rem-xl)
+		fullsize-right()
+		invisible()
+		z-index 9999
+
+		+media(md)
+			visible()

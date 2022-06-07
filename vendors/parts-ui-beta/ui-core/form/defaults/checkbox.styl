@@ -1,0 +1,84 @@
+///// checkbox & radio button defaults
+check-input-item()
+  position relative
+  cursor pointer
+  user-select none
+  flex-row()
+  margin-y($text-indent)
+  clear-margin-y()
+
+  input
+    invisible()
+    position absolute
+    left 0
+    top 0
+
+    &:checked ~
+      +child-el(icon)
+        border-color $theme-color
+
+        &:after,
+        &:before,
+        .{$theme}-icon
+          visible()
+          transition opacity .1s ease 0s, transform .1s $quint 0s
+
+      +child-el(content)
+        &:before
+          border-color $theme-color
+
+        +child-el(icon)
+          border-color $theme-color
+          &:before
+            visible-transform()
+
+        +child-el(note)
+          color $base-color
+
+  &:hover
+    +child-el(icon)
+      border-color $input-border-hover
+
+  &__text
+    flex-col-md()
+    flex 1
+    padding-left $rem-md
+    line-height $line-height-base
+
+
+  &--smooth
+    +child-el(icon)
+      background-color $input-border-color
+
+    input
+      &:checked ~
+        +child-el(icon)
+          bg-theme()
+          text-color-light()
+
+          &:after
+          &:before
+            bg-light()
+
+    &:hover
+      +child-el(icon)
+        background-color $input-border-hover
+
+
+
+
+
+check-input-icon()
+  border 1px solid $input-border-color
+  display block
+  position relative
+  background-color #fff
+  text-align center
+  box-shadow 0 1px 2px -1px alpha(#000,.2)
+  hard-width(round($input-check-size))
+  hard-height(round($input-check-size))
+  transition transform .2s $quint 0s
+
+  &:after
+  &:before
+    invisible()

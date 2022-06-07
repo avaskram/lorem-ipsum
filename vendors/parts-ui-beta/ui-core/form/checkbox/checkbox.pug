@@ -1,0 +1,15 @@
+mixin checkbox(val,mod)
+  - var modifier = ''
+  - var value = ''
+  
+  if val != '' & val != undefined
+    - value = val
+  if mod != '' & mod != undefined
+    - modifier = mod
+  
+  +b.LABEL.checkbox(class=modifier)
+    input(type="checkbox" value=val)&attributes(attributes)
+    +e.icon
+    if block
+      +e.text
+        block

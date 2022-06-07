@@ -1,0 +1,62 @@
++theme(checkbox)
+  &--switch
+    +child-el(icon)
+      hard-width((2*$input-check-size)+4px)
+      hard-height(($input-check-size+4px))
+      border-radius ($input-check-size+4px)
+      background-color $input-border-color
+      border-radius 50%
+      transform-reset()
+      overflow hidden
+      padding 2px
+      border-radius $input-check-size + 2px
+      border 0
+      box-shadow: none
+      transition transform .2s $quint 0s, background .2s ease 0s
+
+      +before()
+        fullsize-scale(0,-2px)
+        scaled(1)
+        bg-transparent()
+        width auto
+        height auto
+        max-width none
+        min-width auto
+        max-height none
+        min-height auto
+        margin 0
+        border 0
+        background-image none
+        transition background .2s ease 0s
+
+      +after()
+        position relative
+        top auto
+        bottom auto
+        left auto
+        right auto
+        margin 0
+        transition: transform .1s $quint 0s
+        scaled(1)
+        hard-width($input-check-size)
+        hard-height($input-check-size)
+        bg-light()
+        visible()
+        border-radius 50%
+        box-shadow 0 2px 2px -1px alpha(#000,.2)
+
+
+    &:hover
+      +child-el(icon)
+        background-color $input-border-hover
+
+    input
+      &:checked ~
+        +child-el(icon)
+          border-color transparent
+
+          &:before
+            bg-theme()
+
+          &:after
+            translated(100%,0)

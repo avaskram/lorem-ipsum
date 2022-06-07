@@ -1,0 +1,15 @@
+mixin card(mod)
+  - modifier = ''
+  if mod != undefined & mod != ''
+    - modifier = mod
+  +b.card(class=modifier)&attributes(attributes)
+    if block
+      block
+
+mixin card-section(mod)
+  - modifier = ''
+  if mod != undefined & mod != ''
+    - modifier = mod
+  +e.section(class=modifier)&attributes(attributes)
+    if block
+      block

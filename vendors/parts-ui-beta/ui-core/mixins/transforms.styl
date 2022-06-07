@@ -1,0 +1,41 @@
+/// TRANSFORMS
+///// animate performace / for better render children elements who used 3d transforms
+animate-performance()
+  backface-visibility hidden
+  transform-style preserve-3d
+  perspective 1000px
+
+///// clear all transforms
+
+transform-reset()
+  transform translate3d(0,0,0)
+
+///// translates
+translated(x,y)
+  transform translate3d(x,y,0)
+
+translated-y(n)
+  transform translate3d(0,n,0)
+
+translated-x(n)
+  transform translate3d(n,0,0)
+
+///// scales
+scaled(n)
+  transform scale(n) translate3d(0,0,0)
+
+///// rotates
+rotated(n)
+  transform rotate(n) translate3d(0,0,0)
+
+rotate-right()
+  transform rotate(180deg) translate3d(0,0,0)
+
+rotate-left()
+  transform rotate(-180deg) translate3d(0,0,0)
+
+rotate-360-right()
+  transform rotate(360deg) translate3d(0,0,0)
+
+rotate-360-left()
+  transform rotate(-360deg) translate3d(0,0,0)

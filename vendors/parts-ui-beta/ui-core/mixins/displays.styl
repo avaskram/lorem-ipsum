@@ -1,0 +1,93 @@
+/// displays
+///// display inline-block
+inline-block()
+  display inline-block
+inline-block-top()
+  inline-block()
+  vertical-align top
+inline-block-md()
+  inline-block()
+  vertical-align middle
+inline-block-bottom()
+  inline-block()
+  vertical-align bottom
+
+///// display table
+table()
+  display table
+  width 100%
+table-fixed()
+  table-layout fixed
+table-row()
+  display table-row
+table-cell()
+  display table-cell
+table-cell-top()
+  display table-cell
+  vertical-align top
+table-cell-md()
+  display table-cell
+  vertical-align middle
+table-cell-bottom()
+  display table-cell
+  vertical-align bottom
+
+
+/// flexbox rules mixins
+///// rows
+flex-base()
+  display flex
+flex-row()
+  flex-base()
+  flex-direction row
+flex-row-baseline()
+  flex-row()
+  align-items baseline
+flex-row-top()
+  flex-row()
+  align-items flex-start
+flex-row-md()
+  flex-row()
+  align-items center
+flex-row-bottom()
+  flex-row()
+  align-items flex-end
+flex-row-center()
+  flex-row()
+  justify-content center
+flex-row-md-center()
+  flex-row()
+  justify-content center
+  align-items center
+flex-row-stretch()
+  flex-row()
+  align-items stretch
+
+
+///// columns
+flex-col()
+  flex-base()
+  flex-direction column
+
+flex-col-top()
+  flex-col()
+  justify-content flex-start
+flex-col-md()
+  flex-col()
+  justify-content center
+flex-col-bottom()
+  flex-col()
+  justify-content flex-end
+flex-col-center()
+  flex-col()
+  align-items center
+flex-col-md-center()
+  flex-col()
+  justify-content center
+  align-items center
+flex-col-stretch()
+  flex-col()
+  align-items stretch
+flex-col-justify()
+  flex-col()
+  justify-content space-between

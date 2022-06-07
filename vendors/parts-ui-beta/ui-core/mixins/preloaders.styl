@@ -1,0 +1,88 @@
+/// preloaders
+///// preloader circle
+preloader-circle(size,thickness,color,bg)
+  font-size 0
+  pointer-events none
+  background-color bg
+  transition background 0s linear 0s
+  will-change transform
+  position relative
+  overflow hidden
+  display block
+
+  &:hover
+    background-color bg
+
+  &:focus
+    background-color bg
+
+  &:active
+    background-color bg
+
+  &:after
+  &:before
+    display none
+
+
+  $preloaderSize = size
+  $preloaderCircleSize = 60*($preloaderSize/100)
+  $preloaderCircleHalf = $preloaderCircleSize/2
+  $itemScale = $preloaderCircleSize*3
+  $itemScaleMin = $preloaderCircleSize/5
+  
+  startLoadAnim(bs,bt)
+    border-top-width bt
+    border-right-width bs
+    border-left-width bs
+    width $itemScaleMin
+    margin-left -1*($itemScaleMin/2)
+
+  centerLoadAnim(bs,bt)
+    border-top-width round(bt)
+    border-right-width bs
+    border-left-width bs
+    width $itemScale*2
+    margin-left -1*($itemScale)
+
+  span
+    fullsize()
+    display block
+    font-size 0
+    overflow hidden
+    transition none
+    animation-name preloaderRotate
+    animation-duration 1800ms
+    animation-iteration-count infinite
+    animation-timing-function linear
+
+    +before()
+      centering-position($preloaderCircleSize,$preloaderCircleSize)
+      circle($preloaderCircleSize)
+      border thickness solid color
+
+    +after()
+      border-arrow-down($preloaderCircleSize,$preloaderCircleHalf,bg)
+      centering-width(round($preloaderCircleSize))
+      height $preloaderCircleSize
+      top 18%
+      animation-name preloaderRotateCircle
+      animation-duration 1800ms
+      animation-iteration-count infinite
+      animation-timing-function ease-in-out
+
+    @keyframes preloaderRotate
+      0%
+        transform rotate(0deg) translate3d(0,0,0)
+      100%
+        transform rotate(360deg) translate3d(0,0,0)
+
+    @keyframes preloaderRotateCircle
+      0%
+        centerLoadAnim($itemScale,$preloaderCircleSize)
+        transform rotate(0deg) translateX($itemScale/8) translateY(0%)
+      50%
+        startLoadAnim(($itemScaleMin/2),$preloaderCircleHalf)
+        transform rotate(180deg) translateX($itemScale*0) translateY(-10%)
+      100%
+        centerLoadAnim($itemScale,$preloaderCircleSize)
+        transform rotate(360deg) translateX($itemScale/8) translateY(0%)

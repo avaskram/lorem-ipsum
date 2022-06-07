@@ -1,0 +1,65 @@
+mixin img(url,format)
+  img(src=url+"."+format, srcset=url+"@2x."+format+" 2x", alt="")&attributes(attributes)
+    
+mixin img-temp(name,format)
+  img(src=imagesTempDir+name+"."+format, srcset=imagesTempDir+name+"@2x."+format+" 2x", alt="")&attributes(attributes)
+
+mixin img-temp-png(name)
+  img(src=imagesTempDir+name+".png", srcset=imagesTempDir+name+"@2x.png 2x", alt="")&attributes(attributes)
+
+mixin img-temp-jpg(name)
+  img(src=imagesTempDir+name+".jpg", srcset=imagesTempDir+name+"@2x.jpg 2x", alt="")&attributes(attributes)
+
+mixin bg-el(color,img,alpha)
+  - var int = "1"
+  if alpha != "" & alpha != undefined
+    - int = alpha
+  +b.bg(style="background-color: "+color+";")&attributes(attributes)
+    if img != undefined
+      +e.image(style="background-image: url('"+img+"'); opacity: "+int+";")
+
+
+mixin bg(url)
+  - bg = ''
+  if url != undefined & url != ''
+    - bg = "background-image: url("+url+");"
+  +e.bg(style=bg)&attributes(attributes)
+    if block
+      block
+
+mixin bg-set(url,ext,pos)
+  - var format = "jpg"
+  - var position = "center/cover"
+  if ext != undefined
+    - format = ext
+  if pos != undefined
+    - postion = pos
+
+  - var set = "background: no-repeat "+position+" url('"+url+"."+format+"'); background-image: -webkit-image-set(url('"+url+"."+format+"') 1x, url('"+url+"@2x."+format+"') 2x);"
+
+  +e.bg(style=set)&attributes(attributes)
+    if block
+      block
+
+
+mixin bg-image(url)
+  - bg = ''
+  if url != undefined & url != ''
+    - bg = "background-image: url("+url+");"
+  +e.bg-image(style=bg)&attributes(attributes)
+    if block
+      block
+
+mixin bg-image-set(url,ext,pos)
+  - var format = "jpg"
+  - var position = "center/cover"
+  if ext != undefined
+    - format = ext
+  if pos != undefined
+    - position = pos
+
+  - var set = "background: no-repeat "+position+" url('"+url+"."+format+"'); background-image: -webkit-image-set(url('"+url+"."+format+"') 1x, url('"+url+"@2x."+format+"') 2x);"
+
+  +e.image(style=set)&attributes(attributes)
+    if block
+      block

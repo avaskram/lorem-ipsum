@@ -1,0 +1,78 @@
+include /layout/includes
+doctype
+html(lang="en-US" xmlns:og="http://ogp.me/ns#")
+  block head
+    head
+      block metaUX
+        meta(charset="utf-8")
+        //-- viewport for mobile devices
+        meta(name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1")
+        //--- IE last version emulator
+        meta(http-equiv="X-UA-Compatible" content="IE=Edge")
+        //--- android and other
+        meta(name="format-detection" content="address=no; email=no; telephone=no;")
+        //--- remove skype toolbars from text on some browser additionals on desktop
+        meta(name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+        
+      block pageIndex
+        - pageIndex = null
+        
+      block pageTitle
+        title= content.head.title
+        
+      block metaContent
+        link(rel="canonical" href=content.head.url)
+        meta(property="og:url", content=content.head.url)
+          
+        meta(property="og:type", content="website")
+        meta(property="og:title", content=content.head.title)
+        meta(name="twitter:title", content=content.head.title)
+      
+        meta(name="description", content=content.head.description)
+        meta(property="og:description", content=content.head.description)
+        
+        meta(name="twitter:card" content="summary_large_image")
+        meta(property="og:image:type", content="image/jpeg")
+        meta(property="og:image", content=content.head.image.url)
+        meta(name="twitter:image", content=content.head.image.url)
+        meta(property="og:image:width", content=content.head.image.width)
+        meta(property="og:image:height", content=content.head.image.height)
+
+  
+      block favicon
+        +favicon()
+        +favicon-safari()
+        
+      block styles
+        //- style
+        //-   include /styles/critical/css/home.css
+        //- +styles-defer(themeFile+'.min')
+        +styles(themeFile+'.min','dynamic')
+
+      block ifie
+        +ifie()
+
+  block body
+    block bodyClasses
+      - bodyClasses = ''
+
+    block pageClasses
+      - pageClasses = ''
+
+    body(class=bodyClasses)
+      block sprite
+        include /assets/icons/sprite.svg
+
+      block page
+        +b.page(class=pageClasses)
+          block header
+            +header()
+          block content
+            
+          
+        block footer
+          +footer()
+              
+      block scripts
+        +jquery-google()
+        +script(themeFile+'.min')

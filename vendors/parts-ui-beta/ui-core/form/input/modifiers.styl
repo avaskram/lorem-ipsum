@@ -1,0 +1,347 @@
+$input-round-scale = 1.3
+
+input-sizes(sizes)
+	for size in sizes
+		$input-size-mod = ($input-size-)+(size)
+		$input-space-mod = ($input-size-mod*$input-space-scale)*$input-scale
+
+		&--{size}
+			input,
+			select,
+			textarea
+				height $input-size-mod + (2*$rem-px)
+				border-radius ($input-radius-)+(size)
+				padding-x($input-space-mod)
+
+				textarea
+					padding-top ($input-space-mod/2)
+
+			+theme(selectbox)
+				&__arrow
+					right $input-space-mod
+
+				&__field
+					height $input-size-mod
+					border-radius ($input-radius-)+(size)
+					padding-left $input-space-mod
+					padding-right $input-space-mod + (5*$rem-px)
+
+
+			+child-el(placeholder)
+				> span
+					transform translate3d($input-space-mod,0px,0.00003px) scale(1)
+				&--compact
+					span
+					+
+						input
+							padding-top ($input-space-mod/6)
+
+			+add-mod(focus)
+				+child-el(placeholder)
+					transform translate3d(0,-1*($input-size-mod/6),0.00002px) rotate(0.000001deg)
+					span
+						transform translate3d($input-space-mod,-8px,0.00003px) scale(.68)
+
+			+add-mod(value)
+				+child-el(placeholder)
+					transform translate3d(0,-1*($input-size-mod/6),0.00002px) rotate(0.000001deg)
+					span
+						transform translate3d($input-space-mod,-8px,0.00003px) scale(.68)
+
+
+
+
+
+			+add-mod(rounded)
+				input,
+				select,
+				textarea,
+				.{$theme}-selectbox__field
+					padding-x($input-space-mod*$input-round-scale)
+
+				+child-el(placeholder)
+					> span
+						left $input-space-mod*$input-round-scale
+
+
+input-mods(mods)
+	for mod in mods
+		if mod == light
+			&--light
+				input,
+				textarea
+				.{$theme}-selectbox__field
+					background-color transparent
+					border-color $input-border-light
+					bg-light()
+					&:hover
+						border-color $input-border-light-hover
+
+		if mod == dark
+			&--dark
+				input,
+				textarea,
+				.{$theme}-selectbox__field
+					border-color $input-border-light
+					bg-dark()
+					&:hover
+						border-color $input-border-light-hover
+
+				input,
+				textarea
+					text-color-light()
+					placeholder-color($input-placeholder-light)
+
+				+theme(selectbox)
+					&__value
+						text-color-light()
+
+						&--placeholder
+							color $input-placeholder-light
+
+
+					&__arrow
+						text-color-light()
+						&:after
+						&:before
+							bg-light()
+
+					&__option
+						text-color-light()
+						&:hover
+							background-color $input-border-light-hover
+
+					&__dropdown
+						bg-dark()
+						border-color $input-border-light
+
+
+		if mod == smooth
+			&--smooth
+				input,
+				textarea,
+				.{$theme}-selectbox__field
+					border 0
+					background-color $input-bg-smooth
+
+					&:hover
+						background-color darken( $input-bg-smooth,3)
+
+					&:focus
+					^[0]--focus &
+					^[0]--value &
+						background-color darken($input-bg-smooth,3)
+
+				^[0]--focus &
+				^[0]--value &
+					input,
+					textarea,
+					.{$theme}-selectbox__field
+						background-color $input-border-light
+
+						&:hover
+							background-color $input-border-light
+
+				+theme(selectbox)
+					&__dropdown
+						border 0
+
+				+add-mod(light)
+					input,
+					textarea,
+					.{$theme}-selectbox__field
+						background-color #fff
+						&:hover
+							background-color #fff
+
+						&:focus
+						^[0]--focus &
+						^[0]--value &
+							background-color #fff
+
+
+
+
+				+add-mod(dark)
+					input,
+					textarea,
+					.{$theme}-selectbox__field
+						background-color $input-border-dark
+						text-color-light()
+						&:hover
+							background-color $input-border-dark-hover
+
+					+theme(selectbox)
+						&__dropdown
+							background-color $input-border-dark
+
+						&__option
+							&:hover
+								background-color $input-border-dark-hover
+
+
+
+
+		if mod == corner
+			&--corner
+				input,
+				textarea,
+				.{$theme}-selectbox__field,
+				.{$theme}-selectbox__dropdown
+					border-radius 0
+
+		if mod == rounded
+			&--rounded
+				input,
+				select,
+				textarea,
+				.{$theme}-selectbox__field
+					border-radius $input-size
+					padding-left $input-space*1.1
+
+				+child-el(placeholder)
+					> span
+						left $input-space*$input-round-scale
+
+				.{$theme}-selectbox__arrow
+					right $input-space*$input-round-scale
+
+				for size in $input-sizes
+					+add-mod(size)
+						input,
+						textarea,
+						.{$theme}-selectbox__field
+							border-radius ($input-size-)+(size)
+
+		if mod == thick
+			&--thick
+				input,
+				textarea,
+				.{$theme}-selectbox__field,
+				.{$theme}-selectbox__dropdown
+					border-width 2px
+
+
+		if mod == focus
+			&--focus
+			&--value
+				input,
+				textarea,
+				.{$theme}-selectbox__field
+					border-color $input-border-focus
+
+
+
+		if mod == underline
+			&--underline
+				input,
+				textarea
+					padding-x(0)
+					bg-transparent()
+					border 0
+					border-radius 0
+
+					&:hover
+					&:active
+					&:focus
+						border-color transparent !important
+
+
+
+
+				+before()
+					fullsize-bottom()
+					height 1px
+					background-color $input-border-color
+					transition background-color .2s ease 0s,
+					opacity 1
+					overflow hidden
+					z-index 1
+
+				+after()
+					left 50%
+					bottom 0
+					position absolute
+					height 1px
+					transition transform .34s $quint 0s, opacity .2s ease 0s, width .34s $quint 0s
+					width 0
+					translated(-50%,0)
+					background-color $input-border-focus
+					z-index 2
+
+				+add-mod(thick)
+					&:before,
+					&:after
+						height 2px
+
+				+child-el(placeholder)
+					transform translate3d(0,0%,0.00002px) rotate(0.000001deg)
+					> span
+						transform translate3d(0,0%,0.00003px) scale(1)
+
+				+add-mod(value)
+					input,
+					textarea
+						border-color: transparent
+
+					+child-el(placeholder)
+						transform translate3d(0,-50%,0.00002px)  rotate(0.000001deg)
+						> span
+							transform translate3d(0,-50%,0.00003px) scale(.68)
+							margin-top 0
+
+
+				+add-mod(focus)
+					input,
+					textarea
+						border-color: transparent
+					+child-el(placeholder)
+						transform translate3d(0,-50%,0.00002px)  rotate(0.000001deg)
+						> span
+							transform translate3d(0,-50%,0.00003px) scale(.68)
+							margin-top 0
+
+				.{$theme}-selectbox
+					&__field
+						padding-left 0
+						border 0
+						border-radius 0
+						background-color transparent
+
+					&__arrow
+						right 0
+
+
+				&:hover
+					&:before
+						background-color $input-border-hover
+
+			&--value
+			&--focus
+				&:after
+					width 100%
+
+
+
+
+		if mod == inline
+			&--inline
+				inline-block()
+
+		if mod == shadow
+			&--shadow
+				input,
+				textarea,
+				.{$theme}-selectbox__field
+					box-shadow $card-shadow
+
+				input,
+				textarea
+					&:active
+					&:focus
+						box-shadow $card-shadow-hover
+
+				+theme(selectbox)
+					&--opened
+						.{$theme}-selectbox__field
+							box-shadow $card-shadow

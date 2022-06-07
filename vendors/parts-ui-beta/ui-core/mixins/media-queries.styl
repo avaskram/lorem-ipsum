@@ -1,0 +1,47 @@
+///// breakpoints (for responsive method)
+media(bp)
+  if bp == xlarge || bp == xl || bp == large || bp == lg || bp == l || bp == medium || bp == md || bp == m || bp == small || bp == sm || bp == s || bp == xsmall || bp == xs
+    if bp == xlarge || bp == xl
+      @media only screen and (max-width $breakpoints.xlarge) {block}
+    if bp == large || bp == lg || bp == l
+      @media only screen and (max-width $breakpoints.large) {block}
+    if bp == medium || bp == md || bp == m
+      @media only screen and (max-width $breakpoints.medium) {block}
+    if bp == small || bp == sm || bp == s
+      @media only screen and (max-width $breakpoints.small) {block}
+    if bp == xsmall || bp == xs
+      @media only screen and (max-width $breakpoints.xsmall) {block}
+
+  else
+    @media only screen and (max-width bp) {block}
+
+///// increase breakpoints (for mobile first method)
+media-min(bp)
+  if bp == xlarge || bp == xl || bp == large || bp == lg || bp == l || bp == medium || bp == md || bp == m || bp == small || bp == sm || bp == s || bp == xsmall || bp == xs
+    if bp == xsmall || bp == xs
+      @media only screen and (min-width ($breakpoints.xsmall + 1px)) {block}
+    if bp == small || bp == sm || bp == s
+      @media only screen and (min-width ($breakpoints.small + 1px)) {block}
+    if bp == medium || bp == md || bp == m
+      @media only screen and (min-width ($breakpoints.medium + 1px)) {block}
+    if bp == large || bp == lg || bp == l
+      @media only screen and (min-width ($breakpoints.large + 1px)) {block}
+    if bp == xlarge || bp == xl
+      @media only screen and (min-width ($breakpoints.xlarge + 1px)) {block}
+
+  else
+    @media only screen and (min-width bp) {block}
+
+
+media-height(bp)
+  @media only screen and (max-height bp)
+    {block}
+
+
+media-to(bp)
+  +media-min(bp)
+    {block}
+
+media-from(bp)
+  +media(bp)
+    {block}

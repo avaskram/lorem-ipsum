@@ -1,0 +1,76 @@
+@require 'vars/paths'
+@require 'theme'
+
+///// PARTS UI
+//////// ui core
+////////// variables & mixins
+@require $uiCoreDir+'vars/index'
+@require 'vars/index'
+
+
+@require $uiCoreDir+'mixins/index'
+@require 'mixins'
+
+////// VENDORS
+//////// fonts
+///////////// local connections
+// @require $vendorsRootDir+"fonts/google-lato.css"
+@require $fontsInit
+
+//////// plugins
+@require $themeDir+'vendors/plugins/ion.rangeSlider-master/css/ion.rangeSlider.min.css'
+
+////////// base
+@require $uiCoreDir+'base/index'
+
+////////// helpers
+// @require $uiCoreDir+'helpers/*'
+
+
+//////// ui core components
+// @require $uiCoreDir+'container/container'
+// @require $uiCoreDir+'grid/grid'
+
+// @require $uiCoreDir+'link/link'
+// @require $uiCoreDir+'images/images'
+@require $uiCoreDir+'buttons/buttons'
+@require $uiCoreDir+'icons/icons'
+@require $uiCoreDir+'icons/add/inside-button'
+// @require $uiCoreDir+'group/group'
+// @require $uiCoreDir+'cards/cards'
+// @require $uiCoreDir+'popup/popup'
+
+
+@require $uiCoreDir+'form/input/input'
+// @require $uiCoreDir+'form/checkbox/checkbox'
+// @require $uiCoreDir+'form/checkbox/checkbox-switch'
+// @require $uiCoreDir+'form/radio/radio'
+@require $uiCoreDir+'form/selectbox/selectbox'
+@require $uiCoreDir+'form/add/response'
+// @require $uiCoreDir+'form/add/elements'
+
+//////// ui components
+// @require $uiComponentsDir+'divider/*'
+// @require $uiComponentsDir+'indent/*'
+
+
+//////////// ui layouts styles
+@require $uiLayoutsDir+'body/*'
+@require $uiLayoutsDir+'page/*'
+// @require $uiLayoutsDir+'header/*'
+
+
+
+///// THEME
+//////// components
+@require $componentsDir+'**/*'
+
+//////// layouts
+@require $layoutsDir+'**/*'
+
+////////// typography
+// @require $uiCoreDir+'typography/titles'
+// @require $uiCoreDir+'typography/text'
+
+//////// all other customizes
+@require 'custom'

@@ -1,0 +1,92 @@
+
+/// burger menu button
+burger(linesWidth, linesThickness, linesDivide, linesColor)
+  flex-row-md()
+  cursor pointer
+  font-size 0
+  {block}
+  $burgerLineRotate = linesDivide + linesThickness
+
+  &__container
+    transition transform .3s $quart 0s
+
+  &__line
+    display block
+    width unit(linesWidth,px)
+    height unit(linesThickness,px)
+    background-color linesColor
+    margin unit(linesDivide,px) auto
+    animation-fill-mode both
+    clear-margin-y()
+
+
+  +active()
+    +child-el(container)
+      transform rotate(180deg) scale(1)
+      opacity 1
+      transition transform .5s $quint 0.15s
+      will-change transform
+
+    +child-el(line)
+      &--line1
+        animation burgerLine1Act .3s $quart
+        animation-fill-mode both
+
+      &--line2
+        animation burgerLine2Act .1s ease
+        animation-fill-mode both
+
+      &--line3
+        animation burgerLine3Act .3s $quart
+        animation-fill-mode both
+
+    @keyframes burgerLine1Act
+      0%
+        transform translate3d(0,0,0) rotate(0deg)
+      50%
+        transform translate3d(0,unit($burgerLineRotate,px),0) rotate(0deg)
+      100%
+        transform translate3d(0,unit($burgerLineRotate,px),0) rotate(45deg)
+
+
+    @keyframes burgerLine3Act
+      0%
+        transform translate3d(0,0,0) rotate(0deg)
+      50%
+        transform translate3d(0,-(unit($burgerLineRotate,px)),0) rotate(0deg)
+      100%
+        transform translate3d(0,-(unit($burgerLineRotate,px)),0) rotate(-45deg)
+
+
+    @keyframes burgerLine2Act
+      0%
+        opacity 1
+      50%
+        opacity 0
+      100%
+        opacity 0
+
+
+    @keyframes burgerLine1
+      0%
+        transform translate3d(0,(unit(linesDivide,px)),0) rotate(45deg)
+      50%
+        transform translate3d(0,(unit(linesDivide,px)),0) rotate(0deg)
+      100%
+        transform translate3d(0,0,0) rotate(0deg)
+
+    @keyframes burgerLine2
+      0%
+        opacity 0
+      50%
+        opacity 0
+      100%
+        opacity 1
+
+    @keyframes burgerLine3
+      0%
+        transform translate3d(0,-(unit($burgerLineRotate,px)),0) rotate(-45deg)
+      50%
+        transform translate3d(0,-(unit($burgerLineRotate,px)),0) rotate(0deg)
+      100%
+        transform translate3d(0,0,0) rotate(0deg)

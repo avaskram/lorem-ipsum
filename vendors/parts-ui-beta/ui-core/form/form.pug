@@ -1,0 +1,11 @@
+mixin form(mods)
+  +b.form(class=mods)
+    form&attributes(attributes)
+      if block
+        block
+
+mixin response(mod)
+  +e.response(class=mod)
+    +e.message
+      if block
+        block

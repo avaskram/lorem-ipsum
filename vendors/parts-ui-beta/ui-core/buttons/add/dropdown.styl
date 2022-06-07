@@ -1,0 +1,22 @@
++theme(btn)
+  &__dropdown
+    dropdown()
+    dropdown-inner()
+    dropdown-bottom(0)
+    bg-light()
+
+    for color in mute dark light theme
+      &--{color}
+        bg-{color}()
+
+    &--right
+      right 0
+      left auto
+
+    &--left
+      left 0
+      right auto
+
+  &:hover
+    +child-el(dropdown)
+      visible-transform()

@@ -1,0 +1,17 @@
+mixin gtag-counter(id)
+  /// Global site tag (gtag.js) - Google Analytics
+  script(async src="https://www.googletagmanager.com/gtag/js?id="+id)
+  script.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', !{JSON.stringify(id)});
+
+mixin google-analytics(id)
+  /// Google Analytics
+  script.
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', !{JSON.stringify(id)};, 'auto');
+    ga('send', 'pageview');
+  script(src='https://www.google-analytics.com/analytics.js' async)
+  /// End Google Analytics

@@ -1,0 +1,36 @@
+header()
+  fullsize-top()
+
+  &__container
+    flex-row-md()
+    padding-x($container-padding)
+    max-width 100%
+    height $header-size
+    position relative
+
+  &__section
+    flex-row-md()
+    height 100%
+    flex 1
+
+    &--left
+      justify-content flex-start
+
+    &--center
+      justify-content center
+
+    &--right
+      justify-content flex-end
+
+
+  if $header-bg is defined
+    for bg in $header-bg
+      &--{bg}
+        +child-el(container)
+          bg-{bg}()
+
+  if $header-types is defined
+    for pos in $header-types
+      if pos == 'sticked'
+        &--sticked
+          position fixed

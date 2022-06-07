@@ -1,0 +1,47 @@
++theme(form)
+  position relative
+  &__container
+    position relative
+
+  &__content
+    display flex
+    flex-wrap wrap
+    margin-x(-15px)
+
+  &__field
+    padding-x(15px)
+    margin-bottom 30px
+    flex 1
+    hard-width((100%/3))
+    position relative
+
+
+    &--lg
+      width (100%/3*2)
+      min-width (100%/3*2)
+
+    &--submit
+      margin-x(auto)
+      align-items: center;
+  &__file
+    position absolute
+    centering-x()
+    top 100%
+    text-sm()
+
+  &__message
+    max-width: 400px
+    margin-x(auto)
+
+  +media(lg)
+    &__field
+      hard-width((100%/2))
+
+  +media(md)
+    &__field
+      &--lg
+      &--lg-mobile
+        hard-width(100%)
+  +media(sm)
+    &__field
+      hard-width(100%)

@@ -1,0 +1,46 @@
+// +theme(field)
+// 	&__help
+// 		square(20px)
+// 		invisible()
+// 		transition-opacity-transform(.2s)
+// 		translated(0,3px)
+// 		position relative
+// 		color $gray-element
+// 		cursor pointer
+// 		font-size 0
+// 		text-align center
+//
+// 		&:before
+// 			circle-border-text(18px,1px,$gray-element)
+// 			text-font-title()
+// 			text-demi()
+// 			text-sm()
+// 			invisible()
+// 			transition-opacity-transform(.2s)
+// 			display block
+// 			content '?'
+//
+// 		+hover-color-theme()
+// 			&:before
+// 				visible-transform()
+//
+//
+// 		+active()
+// 			visible-transform()
+// 			text-color-theme()
+//
+// 		&:before
+// 			visible-transform()
+// 			border-color alpha($theme-color,.2)
+//
+// 		touch-visible()
+// 		media-visible(md)
+//
+// 	&__tooltip
+// 		inactive-visible()
+// 		dropdown()
+// 		dropdown-inner()
+// 		dropdown-top(20px)
+// 		transition-opacity-transform(.2s)
+// 		centering-width(410px)
+// 		dropdown-arrow-bottom($root-size*2,$root-size,#fff)

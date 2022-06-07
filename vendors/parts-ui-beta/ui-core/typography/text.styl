@@ -1,0 +1,75 @@
+/// TEXT
+.text
+	///// text sizes
+	for size in h1 h2 h3 h4 h5 h6 lead base max xxl xl lg md sm xs xxs
+		&-{size}
+			text-{size}()
+		for bp in xs sm md lg xl
+			+media(bp)
+				&-{size}-{bp}
+					text-{size}()
+
+	///// text thickness
+	for thickness in thin x-lighter lighter regular medium demi bold x-bold 'black' 100 200 300 400 500 600 700 800 900
+		&-{thickness}
+			text-{thickness}()
+
+
+
+	///// text style
+	for type in italic normal
+		&-{type}
+			text-{type}()
+
+	///// colors
+	for color in info success warning alert dark mute 'gray' gray-light light
+		&-{color}
+			text-{color}()
+
+
+	///// text font family
+	for font in base title note article code price
+		&-font-{font}
+			text-font-{font}()
+
+	///// text-align styles
+	for align in center right left
+		&-{align}
+			text-{align}()
+			for bp in $size-names-short-reverse
+				&-{bp}
+					+media(bp)
+						text-{align}()
+
+	///// text capitalize
+	for style in caps nocaps
+		&-{style}
+			text-{style}()
+
+
+	///// text space (letter-spacing)
+	&-space
+		text-space()
+		for size in sm md lg xl none
+			&-{size}
+				text-space-{size}()
+
+	&-indent
+		text-indent()
+		display block
+
+	&-title
+		title()
+
+	///// text packages
+	&-hidden
+	&-dots
+		text-dots()
+
+	///// white space nowrap
+	&-nowrap
+		white-space nowrap
+
+	///// cancel white space nowrap
+	&-wrap
+		white-space none

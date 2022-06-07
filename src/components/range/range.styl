@@ -1,0 +1,50 @@
++theme(range)
+
+  &__heading
+    display flex
+    align-items top
+    justify-content space-between
+    font-size 18px
+    text-align left
+
+  &__value
+    white-space nowrap
+    margin-left 20px
+
+  .irs
+    margin-bottom 0
+    text-font-base()
+
+  .irs-handle
+    bg-theme()
+    border 3px solid $theme-color-second
+    box-shadow none
+    cursor grab
+    top 11px
+    width 24px
+    height 24px
+    border-radius 50%
+
+    &:active
+    &:focus
+      cursor grabbing
+
+    &.state_hover
+    &:hover
+      bg-theme()
+
+  .irs-bar
+    height 6px
+    top 20px
+    cursor: pointer;
+    &--single
+      background-color transparent
+
+  .irs--round
+    height 44px
+
+  .irs-line
+    top 20px
+    height 6px
+    bg-alpha(#fff,.7)
+    border 1px solid #fff

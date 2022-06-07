@@ -1,0 +1,342 @@
+@require 'grid-logic'
+
+/// parts grid css classes
+///// parts row
+.{$grid-row-name}
+  flex-row()
+  flex-wrap wrap
+
+///// additionals for row
+.parts-auto
+  > .{$grid-column-name}
+    flex 1
+    width auto !important
+    max-width 100%
+    min-width auto
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        > .{$grid-column-name}
+          flex 1
+          width auto !important
+          max-width 100%
+          min-width auto
+
+
+.parts-nowrap
+  flex-wrap nowrap
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        flex-wrap nowrap
+
+
+///// horizontal rules
+.parts-center
+  justify-content center
+
+  > .{$grid-column-name}
+    margin-x(0)
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        justify-content center
+
+        > .{$grid-column-name}
+          margin-x(0)
+
+
+.parts-right
+  justify-content flex-end
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        justify-content flex-end
+
+.parts-left
+  justify-content flex-start
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        justify-content flex-start
+
+.parts-justify
+  justify-content space-between
+  flex-grow 1
+  > .{$grid-column-name}
+    max-width 100%
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        justify-content space-between
+        flex-grow 1
+
+        > .{$grid-column-name}
+          max-width 100%
+
+// .parts-baseline
+//   align-items baseline
+
+///// vertical rules
+.parts-md
+  align-items center
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        align-items center
+
+  &.parts-stretch
+    align-items stretch
+
+    > .{$grid-column-name}
+      > *
+        display flex
+        flex-direction column
+        justify-content center
+
+.parts-bottom
+  align-items flex-end
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        align-items flex-end
+
+.parts-top
+  align-items flex-start
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        align-items flex-start
+
+.parts-stretch
+  > .{$grid-column-name}
+    flex-col()
+    align-content stretch
+
+    > *
+      flex-grow 1
+
+
+///// additionals for certain columns
+.part-left
+  .{$grid-row-name} > &
+    margin-right auto
+    margin-left 0
+    align-items flex-start
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        .{$grid-row-name} > &
+          margin-right auto
+          margin-left 0
+          align-items flex-start
+
+
+
+.part-right
+  .{$grid-row-name} > &
+    margin-left auto
+    margin-right 0
+    align-items flex-end
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        .{$grid-row-name} > &
+          margin-left auto
+          margin-right 0
+          align-items flex-end
+
+.part-center
+  .{$grid-row-name} > &
+    margin-x(auto)
+    align-items center
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        .{$grid-row-name} > &
+          margin-x(auto)
+          align-items center
+
+
+
+.part-auto
+  .{$grid-row-name} > &
+    flex-grow 1 !important
+    min-width none
+    max-width 100%
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        flex-grow 1 !important
+        min-width none
+        max-width 100%
+        // flex-grow 1 !important
+        // flex-basis 0
+        // flex-shrink 1
+        // width auto !important
+
+.part-md
+  .{$grid-row-name} > &
+    flex-col-md()
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        .{$grid-row-name} > &
+          flex-col-md()
+
+.part-top
+  .{$grid-row-name} > &
+    flex-col()
+    justify-content flex-start
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        .{$grid-row-name} > &
+          flex-col()
+          justify-content flex-start
+
+
+.part-bottom
+  .{$grid-row-name} > &
+    flex-col()
+    justify-content flex-end
+
+  for bp in $size-names-short
+    +media(bp)
+      &-{bp}
+        .{$grid-row-name} > &
+          flex-col()
+          justify-content flex-end
+
+///// columns from row
+.parts
+  grid-columns(number)
+  grid-columns-responsive(number)
+
+///// columns single
+for colnum in 6 8 10 12 13
+  for part in ($grid-columns-)+(colnum)
+    if colnum == 6
+      .part-{part}
+        row-part(part)
+    else
+      columns = colnum
+      .part-{part}
+        row-part-fix(part)
+
+/// responsive
+///// responsive 2-6 columns row
+for bp in $size-names-short
+  for part in 1..6
+    +media(bp)
+      .part-{part}-{bp}
+        row-part(part)
+
+///// responsive 8 columns row
+for bp in $size-names-short
+  for part in 1..8
+    columns = 8
+    +media(bp)
+      .part-{part}-{bp}
+        row-part-fix(part)
+
+///// responsive 10 columns row
+for bp in $size-names-short
+  for part in 1..10
+    columns = 10
+    +media(bp)
+      .part-{part}-{bp}
+        row-part-fix(part)
+
+///// responsive 12 columns row
+for bp in $size-names-short
+  for part in 1..12
+    columns = 12
+    +media(bp)
+      .part-{part}-{bp}
+        row-part-fix(part)
+
+
+///// responsive 13 columns row
+for bp in $size-names-short
+  for part in 1..13
+    columns = 13
+    +media(bp)
+      .part-{part}-{bp}
+        row-part-fix(part)
+
+
+
+///// columns with spaces between
+.parts-space
+  parts-space($grid-columns-space/2)
+
+  for bp in $size-names-short
+    +media(bp)
+      &-base
+        &-{bp}
+          parts-space($grid-columns-space/2)
+
+  for size in xs sm md lg xl xxl
+    &-{size}
+      parts-space(($+(grid-columns-space-)+(size))/2)
+      for bp in $size-names-short
+        &-{bp}
+          +media(bp)
+            parts-space(($+(grid-columns-space-)+(size))/2)
+
+.parts-unspace
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        parts-space(0)
+
+
+///// responsive redefinition
+//////// rules for row
+.parts-collapse
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        parts-collapse()
+
+//////// rules for certain columns
+.part-collapse
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        part-collapse()
+
+.part-collapsed
+  part-collapse()
+
+
+
+
+
+///// parts responsive order position
+.part-first
+  for bp in $size-names-short-reverse
+    +media(bp)
+      &-{bp}
+        order -1
+
+.part-last
+  for bp in $size-names-short-reverse
+    +media(bp)
+      &-{bp}
+        order 1

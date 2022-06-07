@@ -1,0 +1,23 @@
+progressbar(h,bg,c)
+	&__line
+		position relative
+		height h
+		background-color bg
+		overflow hidden
+
+	&__fill
+		fullsize-left()
+		background-color c
+		display block
+
+	{block}
+
+
+progress-steps(value,bg,c)
+	&__item
+		height value
+		margin-left -1*(value/3)
+		text-align center
+
+	&__circle
+		circle(value/3)

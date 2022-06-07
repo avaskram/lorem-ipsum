@@ -1,0 +1,253 @@
+///// image or css icon
+icon-center()
+  display block
+  margin-x(auto)
+
+///// css icons
+//////// icon container
+css-icon-container(size,padding)
+  inline-block()
+  width size
+  height size
+  padding padding
+  font-size 0
+
+//////// icon plus
+css-icon-plus(size,thickness,color)
+  +after()
+    centering-position(thickness,size)
+    background-color color
+
+  +before()
+    centering-position(size,thickness)
+    background-color color
+
+  &:after
+  &:before
+    {block}
+
+
+//////// icon minus
+css-icon-minus(size,thickness,color)
+  +after()
+    centering-width(size)
+    centering-height(thickness)
+    background-color color
+
+  &:after
+    {block}
+
+
+
+//////// icon arrow angle
+/////////// right
+css-icon-angle-right(size,thickness,color,corner)
+  $angle-indent = 0
+
+  if thickness > 1px
+    $angle-indent = thickness/2
+
+  &:after
+  &:before
+    position absolute
+    width thickness
+    height size
+    background-color color
+    {block}
+
+  +before()
+    top 50%
+    margin-top -1*(size)
+    transform-origin center bottom
+    transform translate3d(0,0,0.00001px) rotate(-1*corner+0.00001deg)
+
+  +after()
+    bottom 50%
+    margin-bottom -1*(size) + $angle-indent
+    transform-origin center top
+    transform translate3d(0,0,0.00001px) rotate(corner+0.00001deg)
+
+/////////// left
+css-icon-angle-left(size,thickness,color,corner)
+  $angle-indent = 0
+  if thickness > 1px
+    $angle-indent = thickness/2
+
+  &:after
+  &:before
+    position absolute
+    width thickness
+    height size
+    background-color color
+    {block}
+
+  +before()
+    top 50%
+    bottom auto
+    margin-top -1*(size)
+    transform-origin center bottom
+    transform translate3d(0,0,0.00001px) rotate(corner+0.00001deg)
+
+  +after()
+    bottom 50%
+    top auto
+    margin-bottom -1*(size) + $angle-indent
+    transform-origin center top
+    transform translate3d(0,0,0.00001px) rotate(-1*corner+0.00001deg)
+
+
+/////////// left
+css-icon-angle-up(size,thickness,color,corner)
+  $angle-indent = 0
+  if thickness > 1px
+    $angle-indent = thickness/2
+
+  &:after
+  &:before
+    position absolute
+    width size
+    height thickness
+    background-color color
+    z-index 2
+    {block}
+
+  +before()
+    left 50%
+    right auto
+    margin-left -1*(size)
+    transform-origin right center
+    transform translate3d(0,0,0.00001px) rotate(-1*corner+0.00001deg)
+
+  +after()
+    right 50%
+    left auto
+    margin-right -1*(size)
+    transform-origin left center
+    transform translate3d(0,0,0.00001px) rotate(corner+0.00001deg)
+
+
+css-icon-angle-down(size,thickness,color,corner)
+  &:after
+  &:before
+    position absolute
+    width size
+    height thickness
+    background-color color
+    z-index 2
+    transform-origin center center
+    {block}
+
+  +before()
+    left 50%
+    right auto
+    transform translate3d(0,0,0.00001px) rotate(corner+0.00001deg)
+    if thickness == 1px
+      margin-left -1*(size) + 2px
+    else
+      margin-left -1*(size) + (thickness/2) + 1px
+
+
+
+
+  +after()
+    right 50%
+    left auto
+    transform translate3d(0,0,0.00001px) rotate(-1*corner+0.00001deg)
+    if thickness == 1px
+      margin-right -1*(size) + 1px
+    else
+      margin-right -1*(size) + (thickness/2)
+
+
+
+
+css-icon-cross(size,thickness,color)
+  &:after
+  &:before
+    position absolute
+    width size
+    height thickness
+    background-color color
+    z-index 2
+    top 50%
+    margin-top -0.5*(thickness)
+    {block}
+
+  +before()
+    left 50%
+    margin-left -1*(size/2)
+    transform rotate(45deg)
+    transform-origin center center
+
+  +after()
+    left 50%
+    margin-left -1*(size/2)
+    transform rotate(-45deg)
+    transform-origin center center
+
+
+css-icon-close(size,thickness,color)
+  css-icon-cross(size,thickness,color)
+
+css-icon-bg-check(color)
+  $data-svg = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="216px" height="165px"><path fill-rule="evenodd" d="M214.501,19.312 L196.909,1.201 C196.210,0.401 195.110,0.001 194.111,0.001 C193.011,0.001 192.012,0.401 191.312,1.201 L69.368,124.175 L24.988,79.748 C24.189,78.948 23.189,78.548 22.190,78.548 C21.190,78.548 20.190,78.948 19.391,79.748 L1.599,97.559 C-0.000,99.160 -0.000,101.661 1.599,103.262 L57.573,159.296 C61.172,162.898 65.570,164.999 69.268,164.999 C74.566,164.999 79.163,161.097 80.863,159.496 L80.963,159.496 L214.601,25.016 C216.001,23.315 216.001,20.813 214.501,19.312 L214.501,19.312 Z"/></svg>'
+
+  background-image embedurl($data-svg,'utf8')
+
+
+//////// icon video play
+css-icon-play(size,thickness,color,arrW,arrH)
+  circle-border(size,thickness,color)
+  transform-reset()
+
+  +before()
+    border-arrow-right(arrW,arrH,color)
+    centering-transform()
+    margin-left round(arrW/4)
+  {block}
+
+//////// icon scrolling
+css-icon-scrolling(w,h,lh)
+  ////// base example: css-icon-scrolling(24px,36px,10px)
+  inline-block-md()
+  page-load-visible()
+  position relative
+  z-index 1
+
+  &__container
+    border 2px solid #fff
+    border-radius w
+    position relative
+    width w
+    height h
+
+  &__line
+    position absolute
+    left 50%
+    margin-left -1px
+    width 2px
+    top 5px
+    background-color #fff
+    animation scrollIconAnimate 2s infinite
+    height lh
+    border-radius 2px
+
+  @keyframes scrollIconAnimate
+    0%
+      transform translate3d(0, 0px, 0)
+      opacity 0
+    10%
+      transform translate3d(0, 0px, 0)
+      opacity 1
+    40%
+      transform translate3d(0, 0px, 0)
+      opacity 1
+    60%
+      transform translate3d(0, 10px, 0)
+      opacity 1
+    90%
+      transform translate3d(0, 10px, 0)
+      opacity 0
+    100%
+      transform translate3d(0, 10px, 0)
+      opacity 0

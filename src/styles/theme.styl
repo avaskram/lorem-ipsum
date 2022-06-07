@@ -1,0 +1,11 @@
+///// theme data source file
+themeData = json($themeDir+'theme.json',{hash: true})
+
+///// classNames
+$theme = themeData.theme.prefix
+
+$active = $theme+'-'+themeData.theme.classNames.active
+$inactive = $theme+'-'+themeData.theme.classNames.inactive
+
+$fontsDir = themeData.theme.directories.fonts
+$palette = themeData.theme.palette

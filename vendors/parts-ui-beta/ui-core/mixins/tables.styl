@@ -1,0 +1,46 @@
+///// tables
+table-styled()
+  width 100%
+  border-collapse separate
+  border-spacing 0
+  margin-y($text-indent)
+  clear-margin-y()
+  th,
+  td
+    padding $card-padding-sm
+    border-gray-right()
+    clear-border-right()
+  th
+    bg-gray()
+    border-color $gray-border
+    border-bottom 0
+
+  td
+    border-gray-bottom()
+    clear-padding-x()
+    vertical-align top
+
+  tr
+    +last()
+      td
+        border-bottom 0
+
+table-stripped()
+  tr
+    +child(2n)
+      td
+        background-color $gray-light
+
+table-stripped2()
+  tr
+    +child(2n+1)
+      td
+        background-color $gray-light
+
+table-hovered()
+  tr
+    &:hover
+      td
+        bg-theme()
+        border-color $theme-color
+        color #fff

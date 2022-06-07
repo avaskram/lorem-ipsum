@@ -1,0 +1,43 @@
+/// dividers
+divider-base()
+  position relative
+  +after()
+    bg-gray()
+    {block}
+
+divider-left()
+  +divider-base()
+    width 1px
+    height auto
+    fullsize-left()
+
+divider-right()
+  +divider-base()
+    width 1px
+    height auto
+    fullsize-right()
+
+divider-top()
+  +divider-base()
+    width auto
+    height 1px
+    fullsize-top()
+
+divider-bottom()
+  +divider-base()
+    width auto
+    height 1px
+    fullsize-bottom()
+
+
+divider(side,size,color)
+  background-color color
+  fullsize-{side}()
+  
+  if side == right || side == left
+    width size
+    height auto
+
+  if side == top || side == bottom
+    width auto
+    height size

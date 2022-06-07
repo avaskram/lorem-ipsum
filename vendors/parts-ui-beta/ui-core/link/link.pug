@@ -1,0 +1,12 @@
+mixin link(mods,target)
+  - var link = '#'
+  if target != undefined & target != ''
+    - link = target
+  +b.A.link(class=mods href=link)&attributes(attributes)
+    if block
+      block
+
+mixin link-span(mods)
+  +b.SPAN.link(class=mods)&attributes(attributes)
+    if block
+      block

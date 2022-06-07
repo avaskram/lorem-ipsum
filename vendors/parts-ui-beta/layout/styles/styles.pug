@@ -1,0 +1,13 @@
+mixin styles(name,dynamic,defer)
+  - var media = ''
+  - var onload = ''
+  if defer == 'defer'
+    - media = "none"
+    - onload = "if(media!='all')media='all'"
+  if dynamic == 'dynamic'
+    link(href=cssDir+name+'.css?'+prettyDate(date,v), rel='stylesheet' media=media onload=onload)
+  else
+    link(href=cssDir+name+'.css' rel='stylesheet' media=media onload=onload)
+
+mixin styles-defer(name)
+  link(href=cssDir+name+'.css?'+prettyDate(date,v), rel='stylesheet' media="none" onload="if(media!='all')media='all'")

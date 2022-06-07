@@ -1,0 +1,114 @@
+input-elements(elements)
+	for el in elements
+		if el == note
+			&__note
+				text-sm()
+				text-color-gray()
+				text-regular()
+				margin-y(.2rem)
+				clear-margin-y()
+				position relative
+				display block
+
+		if el == error
+			&__error
+				text-sm()
+				color $alert-color
+				line-height 1
+				display block
+				margin-top .3em
+				position relative
+				text-align left
+				position absolute
+				top 100%
+				z-index 2
+
+				.{$theme}-select &
+					position absolute
+					top 100%
+
+				.{$theme}-radio &
+					position absolute
+					left 2px
+					top 100%
+					margin-top -1*($rem-sm)
+
+				.{$theme}-uploader &
+					fullsize()
+					background-color transparent
+					border 2px solid $alert-color
+					margin 0
+					font-size 0
+
+
+		if el == placeholder
+			&__placeholder
+				fullsize()
+				max-height $input-size-xl
+				pointer-events none
+				cursor text
+				margin-bottom 0
+				display block
+				z-index 31
+				transition transform .34s $quint 0s
+				transform translate3d(0,0%,0.00002px) rotate(0.000001deg)
+				overflow hidden
+				>
+					span
+						color $input-placeholder-color
+						display block
+						position absolute
+						margin-top 1px
+						line-height 0
+						top 50%
+						bottom auto
+						cursor text
+						left 0
+						right auto
+						transition-delay 0s
+						transition-duration: .34s
+						transition-timing-function: $quint
+						transition-property: transform, color, opacity
+						transform translate3d($input-space,0px,0.00003px) scale(1)
+						white-space nowrap
+						transform-origin left center
+
+				+
+					+theme(selectbox)
+						+theme(selectbox__value--placeholder)
+							invisible()
+
+				&--compact
+					+
+						input
+							padding-top ($input-size/6)
+
+
+			&--thick
+				+child-el(placeholder)
+					margin-top 2px
+
+
+			input:focus +
+			&--value
+			&--focus
+				+child-el(placeholder)
+					transform translate3d(0,-50%,0.00002px) rotate(0.000001deg)
+					> span
+						transform translate3d(0,-8px,0.00003px) scale(.68)
+						text-dark()
+
+					&--compact
+						transform translate3d(0,-1*($input-size/8),0.00002px) rotate(0.000001deg)
+						span
+							transform translate3d($input-space,-8px,0.00003px) scale(.6)
+
+
+		if el == icon
+			&__icon
+				fullsize-right()
+
+		if el == label
+			&__label
+				display block
+				margin-bottom .3em

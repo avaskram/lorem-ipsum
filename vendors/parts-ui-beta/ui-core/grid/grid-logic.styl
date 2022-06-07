@@ -1,0 +1,120 @@
+$grid-columns-6 = 2..6
+$grid-columns-8 = 2..8
+$grid-columns-10 = 2..10
+$grid-columns-12 = 2..12
+$grid-columns-13 = 2..13
+$grid-columns-all = 2 3 4 5 6 8 10 12 13
+
+///// columns base
+grid-columns-num(column)
+  part = 100/column
+  > .{$grid-column-name}
+    width (part)%
+    min-width (part)%
+    flex-grow 0
+    flex-shrink 1
+    flex-basis auto
+
+////// columns
+grid-columns(number)
+  columns = $grid-columns-all
+  for number,num in columns
+    &-{number}
+      grid-columns-num(number)
+
+////// responsive columns
+grid-columns-responsive(number)
+  columns = $grid-columns-all
+
+  for bp in $size-names-short
+    +media(bp)
+      for number in columns
+        &-{number}
+          &-{bp}
+            grid-columns-num(number)
+
+
+part-size(columns,num)
+  part = 100/columns*num
+  &
+    width (part)%
+    min-width (part)%
+
+///// unequal columns 2 - 6
+row-part(number)
+  nums = (number..6)
+  row-part-cycle()
+    for columns in nums
+      .parts-{columns} > &
+        part-size(columns,number)
+  row-part-cycle()
+
+///// unequal fixed columns
+row-part-fix(number)
+  nums = columns
+  row-part-fix-cycle()
+    for columns in nums
+      .parts-{columns} > &
+        part-size(columns,number)
+
+  row-part-fix-cycle()
+
+
+///// parts spaces
+parts-space(s)
+  margin-left -1*s
+  margin-right -1*s
+
+  > .{$grid-column-name}
+    padding-left s
+    padding-right s
+    margin-bottom s*2
+
+  &:last-child
+  &.parts-clear-bottom
+    margin-bottom -(s)*2
+
+
+/// columns collapse rules
+///// for all columns from row
+parts-collapse()
+  margin-x(0)
+  width 100%
+  min-width 100%
+  flex-wrap wrap
+
+  > .{$grid-column-name}
+    padding-x(0 !important)
+    margin-x(0 !important)
+    min-width 100% !important
+    width 100% !important
+    flex-basis auto
+
+///// for certain column
+part-collapse()
+  min-width 100% !important
+  width 100% !important
+  flex-basis auto
+
+
+
+
+
+
+
+
+/////// offset mixins
+///// part of row offset base
+part-offset(columns,number)
+  offset = (number/columns)*100
+  &
+    margin-left (offset)%
+
+row-part-offset(number)
+  part-offset-cycle()
+    for columns in $grid-columns-all
+      if columns > number
+        .parts-{columns} > &
+          part-offset(columns,number)
+
+  part-offset-cycle()

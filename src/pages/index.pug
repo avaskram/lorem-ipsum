@@ -1,0 +1,106 @@
+extends /layout/default
+block content
+  +b.banner
+    +bg-set(imagesDir+'tmp/main-section-bg','jpg')
+    +e.inner
+      +e.container
+        +e.content
+          +e.title
+            +e.SPAN.highlight Lorem ipsum
+            |  dolor sit amet consectetur 
+            +e.SPAN.highlight adipiscing
+          +e.text
+            p
+              strong At vero eos et accusamus et iusto odio dignissimos ducimus!
+            ul
+              li Totam rem aperiam eaque ipsa
+              li Sit voluptatem accusantium doloremque laudantium
+              li Sed ut perspiciatis, unde omnis iste natus error
+              
+          +e.options
+            +btn('--theme --md')
+              | Заказать
+            +btn('--light --md')
+              | Подробнее
+  +b.section.--dark.--center
+    +bg-set(imagesDir+'section-bg','png')
+    +e.container
+      +e.title Оформление 
+        +e.SPAN.highlight Заказа
+      +e.text
+        p Перед заполнением формы ознакомьтесь с нашей схемой работы!
+      +b.services
+        +e.item
+          +e.icon
+            +icon('ic-loupe')
+          +e.text Lorem ipsum dolor sit amet
+        +e.item
+          +e.icon
+            +icon('ic-percent')
+          +e.text Сonsecteturadipiscing elit
+        +e.item
+          +e.icon
+            +icon('ic-document')
+          +e.text Sed do eiusmod tempor
+        +e.item
+          +e.icon
+            +icon('ic-mail')
+          +e.text Sed do eiusmod Esse cillum dolore eu fugiat
+        +e.item
+          +e.icon
+            +icon('ic-banknote')
+          +e.text Excepteur sint occaecat cupidatat non proident
+      +b.form
+        form()
+          +e.container
+            +e.content
+              +e.field
+                +b.SELECT.select(data-placeholder="Выберите тип системы" name="system-type")
+                  option(value="")
+                  option(value="Sed ut perspiciatis") Sed ut perspiciatis
+                  option(value="Nemo enim ipsam") Nemo enim ipsam
+                  option(value="Et harum quidem") Et harum quidem
+                  option(value="Temporibus autem") Temporibus autem
+                  option(value="Itaque earum rerum") Itaque earum rerum
+                  option(value="Sed ut perspiciatis") Sed ut perspiciatis
+                  option(value="Nemo enim ipsam") Nemo enim ipsam
+                  option(value="Et harum quidem") Et harum quidem
+                  option(value="Temporibus autem") Temporibus autem
+                  option(value="Itaque earum rerum") Itaque earum rerum
+              +e.field
+                +b.input
+                  input(type="email" placeholder="Ваш e-mail" name="email" id="email" data-validation="email required" data-validation-error-msg="Wrong e-mail format")
+              +e.field.--lg-mobile
+                +b.input
+                  input(type="text" placeholder="Вашe имя" name="name" id="name" data-validation="required" data-validation-error-msg="The field must not be empty")
+              +e.field.--lg
+                +b.range
+                  +e.heading
+                    +e.title Sed ut perspiciatis, unde omnis iste natus
+                    +e.value
+                      +e.SPAN.percent 0
+                      |  %
+                  +e.slider.js-range-slider(data-min="0" data-max="100" data-step="1" data-target=themeEl+"-range__percent" data-grid="false" data-skin="round" data-hide-from-to="true" data-hide-min-max="true")
+                  
+              +e.field
+                +btn('--light --block --upload')
+                  input(type="file" name="attachment")
+                  +icon('ic-file','--left')
+                  | Прикрепить файл
+                +e.file#fileName
+                  
+              +e.field.--submit
+                +btn-button('--theme --block')(type="submit")
+                  | Отправить
+          +e.response.--success
+            +e.message
+              +e.title Success
+              +e.text
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit
+          +e.response.--error
+            +e.message
+              +e.title  Error
+              +e.text
+                p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                p
+                  +e.SPAN.reset Try

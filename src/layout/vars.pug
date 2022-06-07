@@ -1,0 +1,18 @@
+-set_bemto_settings({modifier: '--',prefix: {'': theme.prefix+'-', 'js-':true,'text-': true, 'display-': true, 'parts-': true, 'inline-': true, 'flex-': true, 'opacity-': true, 'centering-': true, 'bg-': true, 'position-': true, 'hide-': true, 'show-': true}})
+
+//--- THEME
+//----- class names
+- var themePrefix = theme.prefix;
+- var themeEl = '.'+themePrefix;
+- var themeFile = theme.files.name;
+
+- var isActive = themePrefix+"-"+theme.classNames.active;
+- var isInactive = themePrefix+"-"+theme.classNames.inactive;
+
+//----- directories
+- var imagesDir = theme.directories.images;
+- var themeDir = '/';
+- var imagesTempDir = theme.directories.images+"tmp/";
+- var cssDir = theme.directories.css;
+- var jsDir = theme.directories.js;
+- var faviconDir = theme.directories.images+"favicon/";

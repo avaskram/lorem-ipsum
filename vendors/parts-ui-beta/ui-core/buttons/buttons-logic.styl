@@ -1,0 +1,382 @@
+/// buttons
+///// base rules
+btn-base()
+  inline-block-top()
+  transition transform .2s ease 0s, opacity .2s ease 0s, background .2s ease 0s, border-color .2s ease 0s, box-shadow .2s ease 0s, color .2s ease 0s
+  text-align center
+  cursor pointer
+  outline none
+  position relative
+  text-decoration none
+  font-family inherit
+  border 1px solid transparent
+  white-space nowrap
+  max-width 100%
+  box-sizing border-box
+
+
+btn-outline-base(bc)
+  border-color bc
+  background-color transparent
+  color $base-color
+
+  &:hover
+    background-color alpha(bc,.12)
+  &:active
+    background-color alpha(bc,.3)
+
+btn-fill(bg,cc)
+  background-color bg
+  color cc
+  border-color transparent
+  &:hover
+    background-color darken(bg,3)
+  &:active
+    background-color darken(bg,5)
+
+  for fill in $button-colors
+    if fill == alpha
+      +add-mod(alpha)
+        background-color alpha(bg,.2)
+        &:hover
+          background-color alpha(bg,.3)
+        &:active
+          background-color alpha(bg,.4)
+
+      +add-mod(outline)
+        +add-mod(alpha)
+          background-color transparent
+          &:hover
+            background-color alpha(bg,.2)
+          &:active
+            background-color alpha(bg,.3)
+
+
+btn-shadow-base(distance,size,color)
+  box-shadow 0 distance size color
+
+btn-icon-base(size)
+  padding-x(0)
+  square(size)
+  font-size 0
+
+btn-rounded-base(br)
+  border-radius br
+
+  +add-mod(amount)
+    &:after
+      border-radius br
+
+btn-size(hh)
+  line-height hh
+  padding-x($button-padding*(hh*$input-scale))
+
+///// buttons rules set
+//////// sizes
+btn-default()
+  btn-base()
+  btn-size($button-size - (2*$rem-px))
+  btn-fill($button-bg, $base-color)
+  border-radius $button-radius
+
+/////////
+btn-icon()
+  btn-icon-base($button-size)
+  text-base()
+
+btn-xxl()
+  btn-size($button-size-xxl)
+  border-radius $button-radius-xxl
+btn-xl()
+  btn-size($button-size-xl)
+  text-xl()
+  border-radius $button-radius-xl
+btn-lg()
+  btn-size($button-size-lg)
+  text-lg()
+  border-radius $button-radius-lg
+btn-md()
+  btn-size($button-size-md)
+  text-md()
+  border-radius $button-radius-md
+btn-sm()
+  btn-size($button-size-sm)
+  text-sm()
+  border-radius $button-radius-sm
+
+btn-xs()
+  btn-size($button-size-xs)
+  text-xs()
+  border-radius $button-radius-xs
+
+
+//////// colors
+btn-info()
+  btn-fill($info-color,#fff)
+
+btn-success()
+  btn-fill($success-color,#fff)
+
+btn-warning()
+  btn-fill($warning-color,$base-color)
+
+btn-alert()
+  btn-fill($alert-color,#fff)
+
+btn-dark()
+  btn-fill($bg-dark,#fff)
+
+btn-gray()
+  btn-fill($gray-md,#fff)
+
+btn-gray-light()
+  btn-fill($gray-light,$base-color)
+
+btn-theme()
+  btn-fill($theme-color,#fff)
+
+//////// tones
+btn-purple()
+  btn-fill($purple,#fff)
+
+btn-brown()
+  btn-fill($brown,#fff)
+
+btn-tale()
+  btn-fill($tale,#fff)
+
+btn-orange()
+  btn-fill($orange,#fff)
+
+btn-light()
+  btn-fill(#fff,$base-color)
+
+
+//////// outline styles
+btn-outline()
+  btn-outline-base($button-bg)
+
+btn-outline-info()
+  btn-outline-base($info-color)
+
+btn-outline-success()
+  btn-outline-base($success-color)
+
+btn-outline-warning()
+  btn-outline-base($warning-color)
+
+btn-outline-alert()
+  btn-outline-base($alert-color)
+
+btn-outline-dark()
+  btn-outline-base($bg-dark)
+
+btn-outline-gray()
+  btn-outline-base($gray-md)
+
+btn-outline-gray-light()
+  btn-outline-base($gray-light)
+
+btn-outline-theme()
+  btn-outline-base($theme-color)
+
+btn-outline-purple()
+  btn-outline-base($purple)
+
+btn-outline-orange()
+  btn-outline-base($orange)
+
+btn-outline-tale()
+  btn-outline-base($tale)
+
+btn-outline-brown()
+  btn-outline-base($brown)
+
+btn-outline-light()
+  color #fff
+  border-color #fff
+
+btn-outline-thick()
+  border-width 2px
+  line-height ($button-size - (4*$rem-px))
+
+  for size in $button-sizes
+    +add-mod(size)
+      line-height (($button-size-)+(size) - (4*$rem-px))
+
+
+btn-outline-dashed()
+  border-style dashed
+
+////// appearance types
+btn-rounded()
+  btn-rounded-base($button-size)
+
+btn-corner()
+  border-radius 0
+  &:after
+    border-radius 0
+
+btn-amount()
+  padding-bottom 2px
+
+  +after()
+    fullsize-scale(-1px)
+    pointer-events none
+    box-shadow 0 -.15em 0 alpha(#000,.1) inset
+    transition box-shadow .2s ease 0s
+    border-radius $button-radius
+
+  &:active
+    translated(0,-0.5*(-.15em))
+    box-shadow none
+    &:after
+      box-shadow 0 -1px 0 rgba(0,0,0,0.1) inset
+
+
+btn-shadow()
+  box-shadow $button-shadow
+  &:hover
+    box-shadow $button-shadow-hover
+
+  &:active
+    box-shadow none
+
+btn-text()
+  background-color transparent
+  border-color transparent
+
+  &:hover
+    background-color transparent
+
+
+///////// icon button
+btn-icon()
+  btn-icon-base($button-size)
+
+btn-icon-xl()
+  btn-icon-base($button-size-xl)
+
+btn-icon-lg()
+  btn-icon-base($button-size-lg)
+
+btn-icon-md()
+  btn-icon-base($button-size-md)
+
+btn-icon-sm()
+  btn-icon-base($button-size-sm)
+
+btn-icon-xs()
+  btn-icon-base($button-size-xs)
+
+//////// full width
+btn-block()
+  display block
+  width 100%
+
+
+
+
+//////// social networks colors
+btn-facebook()
+  btn-fill($color-facebook,#fff)
+
+btn-vk()
+  btn-fill($color-vk,#fff)
+
+btn-youtube()
+  btn-fill($color-youtube,#fff)
+
+btn-vimeo()
+  btn-fill($color-vimeo,#fff)
+
+btn-twitter()
+  btn-fill($color-twitter,#fff)
+
+btn-pinterest()
+  btn-fill($color-pinterest,#fff)
+
+btn-googleplus()
+  btn-fill($color-googleplus,#fff)
+
+btn-linkedin()
+  btn-fill($color-linkedin,#fff)
+
+btn-github()
+  btn-fill($color-github,#fff)
+
+btn-dribbble()
+  btn-fill($color-dribbble,#fff)
+
+btn-foursquare()
+  btn-fill($color-foursquare,#fff)
+
+btn-snapchat()
+  btn-fill($color-snapchat,#fff)
+
+btn-rss()
+  btn-fill($color-rss,#fff)
+
+btn-reddit()
+  btn-fill($color-reddit,#fff)
+
+btn-dropbox()
+  btn-fill($color-dropbox,#fff)
+
+btn-android()
+  btn-fill($color-android,#fff)
+
+btn-windows()
+  btn-fill($color-windows,#fff)
+
+btn-codepen()
+  btn-fill($color-codepen,#fff)
+
+btn-skype()
+  btn-fill($color-skype,#fff)
+
+btn-designernews()
+  btn-fill($color-designernews,#fff)
+
+btn-twitch()
+  btn-fill($color-twitch,#fff)
+
+btn-yahoo()
+  btn-fill($color-yahoo,#fff)
+
+btn-tumblr()
+  btn-fill($color-tumblr,#fff)
+
+btn-hackernews()
+  btn-fill($color-hackernews,#fff)
+
+btn-wordpress()
+  btn-fill($color-wordpress,#fff)
+
+btn-buffer()
+  btn-fill($color-buffer,#fff)
+
+btn-instagram()
+  background #f09433;
+  background linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)
+  filter "progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 )"
+  border-color transparent
+  color #fff
+
+btn-telegram()
+  btn-fill($color-telegram,#fff)
+
+btn-viber()
+  btn-fill($color-viber,#fff)
+
+btn-whatsapp()
+  btn-fill($color-whatsapp,#fff)
+
+btn-soundcloud()
+  btn-fill($color-soundcloud,#fff)
+
+btn-messenger()
+  btn-fill($color-messenger,#fff)
+
+btn-medium()
+  btn-fill($color-medium,#fff)

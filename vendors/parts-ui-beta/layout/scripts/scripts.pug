@@ -1,0 +1,23 @@
+mixin script(name)
+	script(src=jsDir+name+'.js?'+prettyDate(date,v) defer)
+
+mixin script-ext(url)
+	script(src=url defer)
+
+mixin jquery-cdn()
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js' defer)
+
+mixin jquery-google()
+	script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js' defer)
+
+mixin jquery-migrate()
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.1/jquery-migrate.min.js' defer)
+
+mixin jquery-slim()
+	script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' defer)
+
+mixin jquery-local()
+	script(src=jsDir+'jquery.min.js' defer)
+
+mixin script-gmaps(key)
+	script(src="https://maps.google.com/maps/api/js?key="+key defer)

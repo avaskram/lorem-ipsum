@@ -1,0 +1,11 @@
+.display
+  for type in block none inline
+    &-{type}
+      display type
+
+///// inline-block
+.inline-block
+  inline-block()
+  for type in top md bottom
+    &-{type}
+      inline-block-{type}()

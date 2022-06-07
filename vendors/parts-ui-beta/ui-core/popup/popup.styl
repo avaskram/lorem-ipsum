@@ -1,0 +1,133 @@
+///// popup
++theme(popup)
+  ///// popup wrapper styles
+  invisible()
+  position fixed
+  left 0
+  top 0
+  height 100%
+  min-height 100%
+  touch-action pan-y
+  overflow hidden
+  width 100%
+  min-width 100%
+  z-index 1000
+
+  +before()
+    fullsize-fixed()
+    invisible()
+    transition opacity .3s ease 0s
+    will-change opacity
+    bg-alpha($dark,.96)
+
+  +active()
+    visible()
+    &:before
+      opacity 1
+
+  &--blur
+    backdrop-filter blur(10px)
+
+  &--light
+    &:before
+      background-color alpha(#fff,.8)
+
+
+  &__container
+    flex-row-center()
+    fullsize-fixed()
+    height 100%
+    flex-wrap wrap
+    width 100%
+    scroll-wrap-y()
+    overflow-x hidden
+    transform translateZ(0)
+
+
+  &__content
+    flex 1
+    width 100%
+    padding $card-padding
+    margin auto
+
+    +after()
+      height $card-padding-y
+
+    +media(md)
+      padding $card-padding-md
+
+
+  ///// popup item styles
+  &__item
+    invisible()
+    margin-x(auto)
+    container-md()
+    height 0
+    margin-bottom 0
+    display block
+    position relative
+    transform translate3d(0,0,0.00008px) scale(.96) rotate(0.000001deg)
+    transition opacity .3s ease 0.01s, transform .5s $quint 0s
+    -webkit-backface-visibility hidden
+    will-change transform, opacity
+    overflow hidden
+
+    +active()
+      visible()
+      transform translate3d(0,0,0.00008px) scale(1) rotate(0.000001deg)
+      height auto
+      overflow visible
+
+    ///// SIZES
+    &--lg
+      max-width $container-size
+    &--md
+      max-width $container-size-sm
+    &--sm
+      max-width round($container-size/12*5)
+      // max-width $container-md
+
+  ///// CONTENT ELEMENTS
+  //////// section
+  &__section
+    card-section()
+    card-section-sizes($card-section-sizes)
+    card-section-colors($card-section-colors)
+    card-section-types($card-section-types)
+    position relative
+
+  ////// close button
+  &__close
+    square(2em)
+    text-h3()
+    transition-ease(transform,.1s,0s)
+    position absolute
+    pos-right-top(0)
+    cursor pointer
+    z-index 20
+    opacity .8
+
+    +css-icon-close(1em,2px,$dark)
+      border-radius 2px
+
+    &:hover
+      opacity 1
+
+    &--light
+      &:after
+      &:before
+        background-color #fff
+
+      &:hover
+        &:after
+        &:before
+          background-color #fff
+
+    &--outside
+      position relative
+      margin-left auto
+      margin-right 0
+
+
+    &--fixed
+      position fixed

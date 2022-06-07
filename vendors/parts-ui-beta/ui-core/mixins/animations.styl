@@ -1,0 +1,139 @@
+/// ANIMATIONS
+///// rotate
+animation-rotate(name,duration,deg)
+  animation-duration duration
+  animation-iteration-count both
+  animation-timing-function ease
+  animation-delay 0s
+  animation-name (animationRotate)+name
+  will-change transform
+
+  @keyframes animationRotate{name}
+    from
+      transform rotate(0deg)
+      transform-origin center center
+    to
+      transform rotate(deg)
+      transform-origin center center
+
+///// rotate cycle
+animation-rotate-cycle(duration,side)
+  animation-duration duration
+  animation-iteration-count infinite
+  animation-timing-function linear
+  animation-delay 0s
+  animation-fill-mode forwards
+
+  if side == 'right'
+    animation-name animationCycleRotateRight
+
+  if side == 'left'
+    animation-name animationCycleRotateLeft
+
+
+  @keyframes animationCycleRotateRight
+    from
+      transform rotate(0deg)
+      transform-origin center center
+    to
+      transform rotate(360deg)
+      transform-origin center center
+
+
+  @keyframes animationCycleRotateLeft
+    from
+      transform rotate(0deg)
+      transform-origin center center
+    to
+      transform rotate(-360deg)
+      transform-origin center center
+
+
+amimation-fade-base(duration,easing)
+  animation-duration duration
+  animation-timing-function easing
+  animation-delay 0s
+  animation-fill-mode both
+  will-change opacity
+
+
+animation-fade-in(duration, easing)
+  amimation-fade-base(duration,easing)
+  animation-name animationFadeIn
+  @keyframes animationFadeIn
+    from
+      opacity 0
+    to
+      opacity 1
+
+animation-fade-out(duration,easing)
+  amimation-fade-base(duration, easing)
+  animation-name animationFadeOut
+  @keyframes animationFadeOut
+    from
+      opacity 1
+    to
+      opacity 0
+
+amimation-scale-pulse(scale,duration,easing)
+  animation-duration duration
+  animation-timing-function easing
+  animation-iteration-count infinite
+  animation-delay 0s
+  animation-fill-mode both
+  animation-name animationScalePulse
+
+  @keyframes animationScalePulse
+    from
+      transform scale(1)
+    50%
+      transform scale(scale)
+    100%
+      transform scale(1)
+
+
+animation-fade-pulse(duration,easing,delay)
+  animation-duration duration
+  animation-timing-function easing
+  animation-iteration-count infinite
+  animation-delay delay
+  animation-fill-mode both
+  animation-name animationFadePulse
+
+  @keyframes animationFadePulse
+    0%
+      opacity 1
+    50%
+      opacity 0
+    100%
+      opacity 1
+
+
+amimation-transform-base(duration,easing)
+  animation-duration duration
+  animation-timing-function easing
+  animation-delay 0s
+  animation-fill-mode both
+
+
+
+animation-transform-to(duration,easing,transform)
+  amimation-fade-base(duration,easing)
+  animation-name animationTransformIn
+  @keyframes animationTransformIn
+    from
+      transform transform
+    to
+      transform translate3d(0,0,0) scale(1) rotate(0deg)
+
+
+
+
+animation-transform-from(duration,easing,transform)
+  amimation-transform-base(duration, easing)
+  animation-name animationTransformOut
+  @keyframes animationTransformOut
+    from
+      transform translate3d(0,0,0) scale(1) rotate(0deg)
+    to
+      transform transform

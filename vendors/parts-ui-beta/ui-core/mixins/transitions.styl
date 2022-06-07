@@ -1,0 +1,72 @@
+/// transitions
+///// base transition
+base-transition(s)
+  transition all s ease
+
+
+transition-base()
+  transition-timing-function ease
+  transition-delay 0s
+
+
+///// fixed props / variable durations
+transition-opacity(duration)
+  transition-base()
+  transition-duration duration
+  transition-property opacity
+
+
+transition-transform(duration)
+  transition-base()
+  transition-duration duration
+  transition-property transform
+
+transition-opacity-transform(duration)
+  transition-base()
+  transition-duration duration
+  transition-property transform, opacity
+
+transition-color(duration)
+  transition-base()
+  transition-duration duration
+  transition-property color
+
+transition-bg(duration)
+  transition-base()
+  transition-duration duration
+  transition-property background
+
+//// easings
+transition-quint(props,duration,delay)
+  transition-property props
+  transition-timing-function $ease-out-quint
+  transition-delay delay
+  transition-duration duration
+
+transition-expo(props,duration,delay)
+  transition-property props
+  transition-timing-function $ease-out-expo
+  transition-delay delay
+  transition-duration duration
+
+transition-ease(props,duration,delay)
+  transition-property props
+  transition-timing-function ease
+  transition-delay delay
+  transition-duration duration
+
+///// rise delay
+rise-delay(fromto,duration,delay)
+  for num in fromto
+    $itemNumber = num
+    +child($itemNumber)
+      transition-delay (duration*($itemNumber)) + delay
+
+///// fall delay
+fall-delay(fromto,duration,delay)
+  $lastValue = (duration * fromto + delay)
+  for num in fromto
+    $itemNumber = num
+    $currentNumber = num - 1
+    +child($itemNumber)
+      transition-delay $lastValue - (duration*($currentNumber))

@@ -1,0 +1,51 @@
+/// pseudo-elements
+///// add pseudo elements ':after' and ':before' with sprite background
+ps-el-base()
+	content " "
+	display block
+
+after()
+	&:after
+		ps-el-base()
+		{block}
+
+before()
+	&:before
+		ps-el-base()
+		{block}
+
+before-after()
+	&:before
+	&:after
+		{block}
+
+
+after-before()
+	&:before
+	&:after
+		{block}
+
+
+////// firts and last child
+first()
+	&:first-child
+		{block}
+
+last()
+	&:last-child
+		{block}
+
+first-last()
+	&:last-child
+	&:first-child
+		{block}
+		
+last-first()
+	&:last-child
+	&:first-child
+		{block}
+
+
+child(ind)
+	&:nth-child({ind})
+		{block}

@@ -1,0 +1,31 @@
+//--- open graph data
+mixin meta-og()
+  meta(property="og:type", content="website")
+  meta(property="og:title", content=theme.title)
+  meta(property="og:description", content=theme.meta.description)
+  meta(property="og:url", content=theme.meta.url)
+  meta(property="og:site_name", content=theme.name)
+  meta(property="og:image", content=theme.meta.image.url)
+  meta(property="og:image:width", content=theme.meta.image.width)
+  meta(property="og:image:height", content=theme.meta.image.height)
+
+
+//--- twitter meta data
+mixin meta-twitter()
+  meta(name="twitter:card", content="summary_large_image")
+  meta(name="twitter:description", content=theme.meta.description)
+  meta(name="twitter:title", content=theme.title)
+  meta(name="twitter:image", content=theme.meta.image.url)
+
+mixin meta-content()
+  meta(property="description", content=theme.meta.description)
+  +meta-og()
+  +meta-twitter()
+
+
+mixin meta-info()
+  meta(property="description", content=content.meta.description)
+  +meta-og()
+  +meta-twitter()
+
+  

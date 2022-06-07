@@ -1,0 +1,50 @@
+centering-transform()
+  position absolute
+  left 50%
+  top 50%
+  transform translate3d(-50%,-50%,0)
+
+centering-x()
+  position absolute
+  left 50%
+  transform translate3d(-50%,0,0)
+
+centering-y()
+  position absolute
+  top 50%
+  transform translate3d(0,-50%,0)
+
+centering(size)
+  position absolute
+  left 50%
+  top 50%
+  width size
+  height size
+  margin-left -1*(size/2)
+  margin-top -1*(size/2)
+
+centering-position(w,h)
+  position absolute
+  left 50%
+  top 50%
+  width w
+  height h
+  margin-left -1*(w/2)
+  margin-top -1*(h/2)
+
+centering-width(w)
+  position absolute
+  left 50%
+  width w
+  margin-left -1*(w/2)
+
+
+centering-height(h)
+  position absolute
+  top 50%
+  height h
+  margin-top -1*(h/2)
+
+
+centering-margin()
+  margin-x(auto)

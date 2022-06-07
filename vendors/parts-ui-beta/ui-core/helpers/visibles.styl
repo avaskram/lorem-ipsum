@@ -1,0 +1,61 @@
+.visible
+  visible()
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        visible()
+
+    &-touch
+      +touch()
+        visible()
+
+    &-active
+      +active()
+        visible()
+
+
+.invisible
+  invisible()
+
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        invisible()
+    &-touch
+      +touch()
+        invisible()
+
+    &-active
+      +active()
+        invisible()
+
+.hide
+  for bp in $size-names-short
+    &-{bp}
+      +media(bp)
+        display none !important
+
+  &-touch
+    +touch()
+      display none !important
+
+  &-active
+    +active()
+      display none !important
+
+.show
+  for bp in $size-names-short
+    &-{bp}
+      display none !important
+      +media(bp)
+        display block !important
+
+  &-touch
+    +touch()
+      display block !important
+
+
+  &-active
+    +active()
+      display block !important

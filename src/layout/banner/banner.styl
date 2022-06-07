@@ -1,0 +1,87 @@
++theme(banner)
+  position relative
+
+  &__bg
+    // padding-bottom 44.27083333333333%
+    bg-cover()
+    fullsize()
+
+
+  &__inner
+    // fullsize()
+    flex-col-md-center()
+    padding-y(202px)
+
+  &__container
+    container-base()
+    container-default()
+
+  &__content
+    max-width: 50%
+
+  &__title
+    title-base()
+    text-h1()
+    text-caps()
+
+  &__highlight
+    text-theme()
+
+  &__text
+    margin-y(80px)
+    text-xl()
+    p
+      margin-bottom: 10px
+
+  ul
+    li
+      position relative
+      padding-left 24px
+      margin-bottom 5px
+      +before()
+        width 5px
+        height 2px
+        bg-dark()
+        position absolute
+        left 7px
+        top 10px
+
+  &__options
+    display flex
+    flex-wrap: wrap;
+    margin-bottom -10px
+    +theme(btn)
+      margin-right 30px
+      min-width 180px
+      margin-bottom 10px
+
+  +media(xl)
+    &__inner
+      padding-bottom: 100px
+      padding-top: 160px
+
+  +media(lg)
+    &__content
+      max-width 600px
+
+    &__text
+      margin-y(40px)
+
+
+  +media(md)
+    &__title
+      text-h2()
+    &__text
+      text-base()
+    &__inner
+      padding-top 100px
+      padding-bottom 60px
+
+    &__content
+      max-width: 400px
+
+  +media(sm)
+    &__content
+      max-width: none
+    &__options
+      justify-content: center;

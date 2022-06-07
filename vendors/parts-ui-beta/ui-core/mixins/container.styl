@@ -1,0 +1,36 @@
+/// default centered container
+container-base()
+  margin-x(auto)
+  padding-x($container-padding)
+  position relative
+  width 100%
+
+container-default()
+  max-width $container-size
+
+container-sm()
+  max-width $container-size-sm
+
+container-md()
+  max-width $container-size-md
+
+container-lg()
+  max-width $container-size-lg
+
+container-xl()
+  max-width $container-size-xl
+
+container-fullwidth()
+  max-width none
+
+container-fullsize()
+  max-width none
+
+container-compact()
+  padding-x(0)
+
+container-indent()
+  margin-x(-1*$container-padding)
+
+container-scroll()
+  scroll-wrap-x()

@@ -1,0 +1,98 @@
+/// disable rules on first / last child
+///// clear margin
+clear-margin-top()
+  +first()
+    margin-top 0
+clear-margin-bottom()
+  +last()
+    margin-bottom 0
+clear-margin-left()
+  +first()
+    margin-left 0
+clear-margin-right()
+  +last()
+    margin-right 0
+
+clear-margin-x()
+  clear-margin-left()
+  clear-margin-right()
+
+clear-margin-y()
+  clear-margin-top()
+  clear-margin-bottom()
+
+///// clear padding
+clear-padding-top()
+  +first()
+    padding-top 0
+
+clear-padding-bottom()
+  +last()
+    padding-bottom 0
+
+clear-padding-left()
+  +first()
+    padding-left 0
+clear-padding-right()
+  +last()
+    padding-right 0
+
+clear-padding-x()
+  clear-padding-left()
+  clear-padding-right()
+
+clear-padding-y()
+  clear-padding-top()
+  clear-padding-bottom()
+
+///// clear border
+clear-border-top()
+  +first()
+    border-top 0
+
+clear-border-bottom()
+  +last()
+    border-bottom 0
+
+clear-border-left()
+  +first()
+    border-left 0
+
+clear-border-right()
+  +last()
+    border-right 0
+
+clear-border-x()
+  clear-border-left()
+  clear-border-right()
+
+clear-border-y()
+  clear-border-top()
+  clear-border-bottom()
+
+
+///// clear after / before
+clear-before()
+  &:before
+    display none
+
+clear-after()
+  &:after
+    display none
+
+
+clear-after-first()
+  +first()
+    clear-after()
+
+clear-after-last()
+  +last()
+    clear-after()
+
+clear-before-first()
+  +first()
+    clear-before()
+
+clear-before-last()
+  +last()
+    clear-before()

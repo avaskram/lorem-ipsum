@@ -1,0 +1,20 @@
+mixin selectbox(items...,mod)
+  - var modifier = ''
+  if mod != undefined & mod != ''
+    - modifier = mod
+  
+  +b.selectbox(class=modifier)
+    +e.SELECT.select
+      for item in items
+        option(value=item)= item
+        
+    +e.field
+      for item in items
+        +e.value= item
+      +e.arrow
+      
+    +e.dropdown
+      +e.list
+        for item in items
+          +e.option
+            +e.text= item

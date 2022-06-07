@@ -1,0 +1,35 @@
+mixin radiobutton(val,mod)
+  - var modifier = ''
+  - var value = ''
+
+  if mod != '' & mod != undefined
+    - modifier = mod
+
+  if val != '' & val != undefined
+    - value = val
+
+  +b.LABEL.radio(class=modifier)
+    input(type="radio" value=text)&attributes(attributes)
+    +e.icon
+    if block
+      +e.text
+        block
+
+mixin radio-color(name,color,mod)
+  - var modifier = ''
+  - var value = ''
+
+  if mod != '' & mod != undefined
+    - modifier = mod
+
+  if val != '' & val != undefined
+    - value = val
+
+  +b.LABEL.radio.--color(class=modifier)
+    input(type="radio" name=name value=color data-color=color).js-select-color&attributes(attributes)
+    +e.icon
+      +e.color
+      
+    if block
+      +e.text
+        block

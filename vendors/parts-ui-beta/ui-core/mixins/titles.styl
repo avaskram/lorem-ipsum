@@ -1,0 +1,54 @@
+//////// titles sizes guide
+title-base()
+  text-font-title()
+  display block
+  font-weight $title-thickness
+  {block}
+
+title()
+  +title-base()
+    line-height $title-line-height
+    margin-top $title-margin-top
+    margin-bottom $title-margin-bottom
+    clear-margin-y()
+
+title-elements()
+  h1
+  h2
+  h3
+  h4
+  h5
+  h6
+  .h1
+  .h2
+  .h3
+  .h4
+  .h5
+  .h6
+  .text-title
+  .{$theme}-title
+    {block}
+
+title-line(color)
+  overflow hidden
+  font-title()
+
+  span
+    inline-block()
+    position relative
+
+    +after()
+      line-x(1px,color)
+      position absolute
+      width 1000px
+      left 100%
+      top 50%
+      margin-left $container-padding
+
+    +before()
+      line-x(1px,color)
+      position absolute
+      width 1000px
+      right 100%
+      top 50%
+      margin-right $container-padding

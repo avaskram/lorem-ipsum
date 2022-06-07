@@ -1,0 +1,28 @@
+mixin popups()
+  +b.popup&attributes(attributes)
+    +e.container
+      +e.content
+        if block
+          block
+            
+mixin popup()
+  +b.popup&attributes(attributes)
+    +e.container
+      +e.content
+        if block
+          block
+            
+mixin popups-list()
+  +b.popup&attributes(attributes)
+    +e.container
+      +e.content
+        if block
+          block
+          
+mixin popup-item(modifier)
+  - var mod = ''
+  if modifier != undefined & modifier != ''
+    - mod = modifier
+  +e.item(class=mod)&attributes(attributes)
+    if block
+      block

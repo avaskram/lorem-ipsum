@@ -1,0 +1,7 @@
+mixin space(num)
+  - var space = "&nbsp;"
+  if num != undefined
+    - for (var n = 0; n < num; n++)
+      | !{space}
+  else
+    | &nbsp;

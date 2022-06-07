@@ -1,0 +1,65 @@
+/// DROPDOWN
+///// base styles
+dropdown()
+	invisible()
+	border-radius $card-radius
+	color $base-color
+	text-align left
+	position absolute
+
+dropdown-inner()
+	padding $card-padding
+
+///// positions
+dropdown-top(offset)
+	top auto
+	bottom 100%
+	padding-top 0
+	padding-bottom offset
+
+dropdown-bottom(offset)
+	top 100%
+	bottom auto
+	padding-bottom 0
+	padding-top offset
+
+dropdown-left(offset)
+	right 100%
+	padding-right offset
+	left auto
+	padding-left 0
+
+dropdown-right(offset)
+	left 100%
+	padding-left offset
+	right auto
+	padding-right 0
+
+///// triangle arrows ( useful for after/before pseudo-elements )
+dropdown-arrow-top(size,c)
+	border-arrow-down(size*2,size,c)
+	bottom auto
+	top 100%
+	centering-x()
+	margin-top -1px
+
+dropdown-arrow-bottom(size,c)
+	border-arrow-up(size*2,size,c)
+	top auto
+	bottom 100%
+	centering-x()
+	margin-bottom -1px
+
+dropdown-arrow-left(size,c)
+	border-arrow-right(size,size*2,c)
+	centering-y()
+	left 100%
+	right auto
+	margin-left -1px
+
+dropdown-arrow-right(size,c)
+	border-arrow-left(size,size*2,c)
+	centering-y()
+	right 100%
+	left auto
+	margin-right -1px

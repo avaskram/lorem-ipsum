@@ -1,0 +1,16 @@
+mixin header()
+  +b.HEADER.header.--stick.js-toggle-outside(data-toggle-exceptions=themeEl+"-burger" data-stick-offset="1")
+    +e.container
+      +e.logo
+        a(href="/")
+          img(src=imagesDir+'logo.svg', alt="")
+      +e.UL.nav
+        +e.LI.item
+          +e.A(href="/").link.--current Бизнес
+        +e.LI.item
+          +e.A(href="/").link О нас
+        +e.LI.item
+          +e.A(href="/").link Цены
+        +e.LI.item
+          +e.A(href="/").link Оформить заказ
+    +burger()

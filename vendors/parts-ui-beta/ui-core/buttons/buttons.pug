@@ -1,0 +1,18 @@
+mixin btn(mod,href)
+  - var target = "#"
+  if href != undefined
+    - target = href
+
+  +b.A.btn(href=target class=mod)&attributes(attributes)
+    if block
+      block
+      
+mixin btn-button(mod)
+  +b.BUTTON.btn(type="button" class=mod)&attributes(attributes)
+    if block
+      block
+
+mixin btn-submit(mod)
+  +b.BUTTON.btn(type="submit" class=mod)&attributes(attributes)
+    if block
+      block

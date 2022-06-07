@@ -1,0 +1,55 @@
+///// inputs default styles
+input-defaults()
+	input[type="text"]
+	input[type="password"]
+	input[type="email"]
+	input[type="search"]
+	input[type="url"]
+	input[type="tel"]
+	input[type="number"]
+	textarea
+		&,
+		/.{$theme}-selectbox__field
+			////// base
+			margin-bottom 0
+			transition border-color .15s ease 0s, background .15s ease 0s, box-shadow .15s ease 0s
+			-webkit-appearance none
+
+			////// variable
+			border-radius $input-radius
+			height $input-size
+			border-width $input-border-width
+			border-style $input-border-style
+			border-color $input-border-color
+			padding-x($input-space)
+			background-color $input-bg
+			box-sizing border-box
+
+			&:hover
+				border-color $input-border-hover
+
+			///// errors
+			&.error
+				border-color $alert-color
+
+
+		&:focus
+		/.{$theme}-selectbox--opened .{$theme}-selectbox__field
+			border-color $input-border-focus
+
+		&[disabled]
+			pointer-events none
+			opacity .8
+
+		&
+			placeholder-color($input-placeholder-color)
+
+
+	textarea
+		min-height $textarea-size
+		padding-y(($input-size/2) - $rem-sm)
+		padding-x($input-space)
+		resize none
+
+	input[type="number"]
+		-webkit-appearance none

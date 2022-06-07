@@ -1,0 +1,54 @@
+card-elements(elements)
+	for element in elements
+		if element == title
+			&__title
+				title()
+				position relative
+				margin-top 0
+				&--str
+					for str in 1...10
+						&{str}
+							text-preview($title-line-height*(str),str)
+
+		if element == text
+			&__text
+				text-indent()
+				&--str
+					for str in 1...10
+						&{str}
+							text-preview($text-indent*(str),str)
+
+		if element == note
+			&__note
+				text-color-gray()
+				text-sm()
+				flex-col-bottom()
+				flex 1
+
+		if element == label
+			&__label
+				radius-sm()
+				text-xs()
+				text-caps()
+				inline-block()
+				position relative
+				border 1px solid alpha(#fff,.5)
+				color #fff
+				padding .2em .5em
+				margin-bottom 1em
+				width auto
+				margin-right auto
+				align-self flex-start
+				clear-margin-y()
+
+				&--dark
+					bg-dark()
+					border-color $dark
+
+				&--gray
+					background-color $gray-light
+					border-color $gray
+
+				&--light
+					bg-light()
+					border-color #fff

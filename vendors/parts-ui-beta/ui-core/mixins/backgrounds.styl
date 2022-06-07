@@ -1,0 +1,155 @@
+/// backgrounds
+///// background sizes and positions
+//////// size cover
+bg-cover-base()
+  background-size cover
+  background-repeat no-repeat
+
+bg-cover()
+  bg-cover-base()
+  background-position center center
+
+bg-cover-top()
+  bg-cover-base()
+  background-position top center
+
+bg-cover-bottom()
+  bg-cover-base()
+  background-position bottom center
+
+
+bg-cover-right()
+  bg-cover-base()
+  background-position center right
+
+bg-cover-left()
+  bg-cover-base()
+  background-position center left
+
+
+//////// size 100%
+bg-100-base()
+  background-size 100%
+  background-repeat no-repeat
+
+bg-100()
+  bg-100-base()
+  background-position center center
+
+bg-100-top()
+  bg-100-base()
+  background-position top center
+  background-repeat no-repeat
+
+bg-100-bottom()
+  bg-100-base()
+  background-position bottom center
+
+
+
+///// background colors
+//////// theme
+bg-theme()
+  background-color $theme-color
+
+
+bg-theme-second()
+  background-color $theme-color-second
+
+bg-base()
+  background-color $base-color
+
+//////// base
+bg-info()
+  background-color $info-color
+
+bg-success()
+  background-color $success-color
+
+bg-warning()
+  background-color $warning-color
+
+bg-alert()
+  background-color $alert-color
+
+//////// monochrome
+bg-gray()
+  background-color $bg-gray
+
+bg-light()
+  background-color #fff
+
+bg-dark()
+  background-color $bg-dark
+
+bg-mute()
+  background-color $dark-mute
+
+bg-border()
+  background-color $gray-border
+
+bg-transparent()
+  background-color transparent
+
+//////// tones
+bg-orange()
+  background-color $orange
+
+bg-purple()
+  background-color $purple
+
+bg-tale()
+  background-color $tale
+
+bg-brown()
+  background-color $brown
+
+bg-white()
+  background-color #fff
+
+bg-black()
+  background-color #000
+
+
+//////// alpha
+bg-alpha(color,a)
+  background-color alpha(color,a)
+
+///// bg element
+bg-el()
+  &,
+  &__image
+    fullsize-bg()
+
+
+///// bg icon
+bg-icon(url,w,h)
+  background-repeat no-repeat
+  background-position center center
+  background-image url(url)
+  background-size w h
+  width w
+  height h
+
+
+///// dots bg
+bg-dot(size,color)
+  background-image linear-gradient(to right,color 50%, transparent 0%)
+  background-repeat repeat-x
+  background-size size (size/2)
+
+///// dots bg svg
+bg-dot-svg(size,color)
+  background-image embedurl('data:image/svg+xml,<svg preserveAspectRatio="xMidYMid meet" viewBox="0 0 '+size+' '+size+'" width="'+size+'" height="'+size+'" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M2.000,1.000 L2.000,-0.000 L3.000,-0.000 L3.000,1.000 L2.000,1.000 ZM-0.000,2.000 L1.000,2.000 L1.000,3.000 L-0.000,3.000 L-0.000,2.000 Z" fill="'+color+'"/></svg>', "utf8")
+  background-repeat repeat
+  background-size (size)px (size)px
+
+
+
+///// video element bg
+bg-video()
+  min-height 100%
+  min-width 100%
+  width auto
+  height auto
+  centering-transform()

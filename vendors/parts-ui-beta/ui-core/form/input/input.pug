@@ -1,0 +1,66 @@
+mixin input(t,mod,ph)
+  - var modifier = ''
+  - var placeholder = ''
+
+  if mod != '' & mod != undefined
+    - modifier = mod
+
+  if ph != '' & ph != undefined
+    - placeholder = ph
+
+  +b.input(class=modifier)
+    input(type=t placeholder=placeholder)&attributes(attributes)
+    if block
+      block
+
+
+mixin textarea(mod,ph)
+  - var modifier = ''
+  - var placeholder = ''
+
+  if mod != '' & mod != undefined
+    - modifier = mod
+
+  if ph != '' & ph != undefined
+    - placeholder = ph
+
+  +b.input(class=modifier)
+    textarea(placeholder=placeholder)&attributes(attributes)
+    if block
+      block
+
+mixin radio-button(text,name,mod,val,checked)
+  - var modifier = ''
+  - var value = ''
+
+  if mod != '' & mod != undefined
+    - modifier = mod
+
+  if val != '' & val != undefined
+    - value = val
+
+  +b.LABEL.radio(class=modifier)
+    if checked != undefined
+      input(type="radio" name=name value=value checked)&attributes(attributes)
+    else
+      input(type="radio" name=name value=value)&attributes(attributes)
+    +e.icon
+    +e.text= text
+      if block
+        block
+
+
+mixin selectbox(items,mod)
+  +b.selectbox(class=mod)
+    +e.SELECT.select
+      for item in items
+        option(value=item)= item
+    +e.field
+      for item in items
+        +e.value= item[0]
+      +e.arrow
+    +e.dropdown
+      +e.list
+        for item in items
+          +e.option
+            +e.name= item

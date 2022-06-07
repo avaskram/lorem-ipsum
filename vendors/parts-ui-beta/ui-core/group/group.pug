@@ -1,0 +1,7 @@
+mixin group(mod)
+  - var modifier = ''
+  if mod != undefined
+    - modifier = " "+theme.prefix+"-group"+mod
+  DIV(class=theme.prefix+"-group"+modifier)&attributes(attributes)
+    if block
+      block

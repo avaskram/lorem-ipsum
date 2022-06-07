@@ -1,0 +1,14 @@
+page()
+  min-height 100%
+  position relative
+  background-repeat no-repeat
+  background-position top center
+
+  &__clearfix
+    clear both
+    display block
+
+  if arguments != undefined
+    for color in arguments
+      &--{color}
+        bg-{color}()

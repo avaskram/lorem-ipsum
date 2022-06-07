@@ -1,0 +1,115 @@
+///// base
+link-border-base()
+  border-bottom-width 1px
+  transition border-color .15s ease 0s, color .15s ease 0s
+  border-bottom-color alpha($link-color,$link-border-intensity)
+
+///// types
+link-border()
+  link-border-base()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($link-color,$link-border-hover-intensity)
+
+link-border-line()
+  border-bottom-style solid
+  border-bottom-color alpha($link-color,$link-border-intensity)
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($link-color,$link-border-hover-intensity)
+
+link-border-dash()
+  link-border-base()
+  border-bottom-style dashed
+
+link-border-dot()
+  link-border-base()
+  border-bottom-style dotted
+
+link-border-thick()
+  border-bottom-width 2px
+
+///// colors
+link-border-gray()
+  border-bottom-color alpha($gray,$link-border-intensity)
+  text-color-gray()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($gray,$link-border-hover-intensity)
+
+link-border-light()
+  border-bottom-color alpha($light-color,$link-border-intensity)
+  text-light()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($light-color,$link-border-hover-intensity)
+
+link-border-dark()
+  border-bottom-color alpha($dark-color,$link-border-intensity)
+  text-dark()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($dark-color,$link-border-hover-intensity)
+
+link-border-mute()
+  border-bottom-color alpha($dark-mute,$link-border-intensity)
+  text-mute()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($dark-mute,$link-border-hover-intensity)
+
+
+link-border-info()
+  border-bottom-color alpha($info-color,$link-border-intensity)
+  text-info()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($info-color,$link-border-hover-intensity)
+
+
+link-border-success()
+  border-bottom-color alpha($success-color,$link-border-intensity)
+  text-success()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($success-color,$link-border-hover-intensity)
+
+
+link-border-warning()
+  border-bottom-color alpha($warning-color,$link-border-intensity)
+  text-warning()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($warning-color,$link-border-hover-intensity)
+
+link-border-alert()
+  border-bottom-color alpha($alert-color,$link-border-intensity)
+  text-alert()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($alert-color,$link-border-hover-intensity)
+
+link-border-theme()
+  border-bottom-color alpha($theme-color,$link-border-intensity)
+  text-theme()
+  &:hover,
+  a:hover &
+    border-bottom-color alpha($theme-color,$link-border-hover-intensity)
+
+
+link-border-deep(items = null)
+  text-color-base()
+
+  if items != null
+    for item in items
+      border-bottom-color item
+      &:hover,
+      a:hover &
+        border-bottom-color item
+        color item
+
+
+link-border-short(size)
+  text-dots()
+  inline-block()
+  max-width size

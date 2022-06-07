@@ -1,0 +1,52 @@
+@require 'buttons-logic'
+
+buttons-init()
+  btn-default()
+  for size in $button-sizes
+    if size != ''
+      &--{size}
+        btn-{size}()
+
+  for color in $button-colors
+    if color != ''
+      &--{color}
+        btn-{color}()
+
+  for type in $button-types
+    if type != ''
+      &--{type}
+        btn-{type}()
+
+      if type == icon
+        &--icon
+          for size in $button-sizes
+            if size != ''
+              +add-mod(size)
+                btn-icon-{size}()
+
+
+  if $button-outline-mods != ''
+    &--outline
+      for color in $button-colors
+        if color != ''
+          +add-mod(color)
+            btn-outline-{color}()
+
+    for mod in $button-outline-mods
+      if mod != ''
+        +add-mod(mod)
+          btn-outline-{mod}()
+
+  &--disabled
+  &[disabled]
+    pointer-events none
+    cursor not-allowed
+    opacity .5
+
+if $theme != ''
+  .{$theme}-btn
+    buttons-init()
+
+else
+  .btn
+    buttons-init()

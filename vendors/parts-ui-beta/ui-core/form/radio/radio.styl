@@ -1,0 +1,21 @@
+@require '../defaults/checkbox'
+
++theme(radio)
+  check-input-item()
+
+  &__icon
+    check-input-icon()
+    border-radius 50%
+
+    +before()
+      scaled(.5)
+      circle(10px)
+      centering-position(10px,10px)
+      bg-theme()
+      background-image none
+
+  input:checked
+    +
+      +child-el(icon)
+        &:before
+          visible-transform()

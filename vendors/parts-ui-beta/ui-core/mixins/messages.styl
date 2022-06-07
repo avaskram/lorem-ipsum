@@ -1,0 +1,45 @@
+card-message()
+  border-radius 0
+  position relative
+  border 0
+  border-left-width 3px
+  border-style solid
+  border-left-color $gray
+  background-color $gray-x-light
+  padding-y($card-padding-y)
+  padding-x($card-padding-x + 3*$rem-px)
+  text-indent()
+
+card-message-backgrounds()
+  for type in $colors.state
+    &--{type}
+      text-color-base()
+      color alpha(darken(saturation($+(type)+(-color),40),44),.8)
+      background-color alpha($+(type)+(-color),.1)
+      border-left-color $+(type)+(-color)
+
+      +add-mod(quote)
+        color alpha(darken($+(type)+(-color),44),.6)
+
+  &--light
+    color #fff
+    border-left-color #fff
+
+    +add-mod(quote)
+      color #fff
+
+card-message-colors()
+  &--fill
+    card-section-colors($card-section-colors)
+
+  &--quote
+    background-color transparent
+    border-radius 0
+    padding-left ($card-padding-x + 3*$rem-px)
+    border-right 0
+    padding-y(0)
+
+    &^[0]--sm
+    &^[0]--md
+    &^[0]--lg
+      padding-y(0)

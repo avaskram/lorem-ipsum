@@ -1,0 +1,89 @@
++theme(btn)
+  font-size 15px
+  text-caps()
+  text-demi()
+  &--md
+    font-size 13px
+  &--theme
+    border-color $light-color
+  &--light
+    border-color $theme-color
+    &:hover
+      text-theme()
+      
+  &--upload
+    overflow hidden
+
+    +theme(icon)
+      text-lg()
+
+
+    input[type="file"]
+      position absolute
+      right 0
+      top 0
+      font-size 120px
+      opacity 0
+
+
++theme(selectbox)
+  &--opened
+    +child-el(field)
+      bg-alpha($dark-mute,.85)
+      border-alpha(1px,$dark-mute,.85) !important
+
+    +child-el(arrow)
+      &:after
+      &:before
+        bg-light()
+
+    +child-el(value)
+      text-light()
+    +child-el(dropdown)
+      max-height: 215px
+
+
+  &__value
+    text-dark()
+
+  &__arrow
+    &:after
+    &:before
+      height 1px
+
+  &__dropdown
+    bg-dark()
+    box-shadow: none
+    border-radius: 0 0 3px 3px
+    border-bottom: 1px solid alpha($dark-mute,.85)
+    border-left: 1px solid alpha($dark-mute,.85)
+    border-right: 1px solid alpha($dark-mute,.85)
+    border-top 0
+    margin-top -2px
+    max-height: 215px
+    scrollbar-width: thin;
+
+    &::-webkit-scrollbar
+      width: 7px;
+      border-radius: 10px
+    &::-webkit-scrollbar-track
+      bg-mute()
+      border-radius: 10px
+
+    &::-webkit-scrollbar-thumb
+      bg-theme()
+      border-radius: 10px
+
+  &__list
+    padding-bottom 10px
+    padding-top 5px
+
+
+
+
+  &__option
+    bg-transparent()
+    text-light()
+    &:hover
+      bg-transparent()
+      text-theme()

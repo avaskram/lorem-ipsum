@@ -1,0 +1,67 @@
++theme(radio)
+	&__color
+		display block
+		border-radius 50%
+		fullsize()
+		transition opacity .2s ease 0s, transform .2s $quint 0s
+		transform translate3d(0,0,0.00001px) scale(.5) rotate(0.000001deg)
+
+		+after()
+			circle($input-check-size/3)
+			transform translate3d(-50%,-50%,0.00002px) scale(.5) rotate(0.000001deg)
+			position absolute
+			left 50%
+			top 50%
+			invisible()
+			transition-opacity-transform(.2s)
+			background-color #fff
+
+	&--color
+		font-size 0
+		justify-content center
+		overflow visible
+		transform translate3d(0,0,0.0) scale(1) rotate(0.000001deg)
+
+		+child-el(icon)
+			min-width $input-check-size
+			width $input-check-size
+			height $input-check-size
+			border-radius 50%
+			border 0
+			overflow visible
+			visible-transform()
+
+			+before()
+				fullsize()
+				border-radius 50%
+				width auto
+				height auto
+				border 1px solid $input-border-color
+				background-color transparent
+				margin 0
+				visible-transform()
+
+			+after()
+				circle($input-check-size-lg/2)
+				transform translate3d(-50%,-50%,0) scale(.5) rotate(0.000001deg)
+				position absolute
+				left 50%
+				top 50%
+				invisible()
+				transition-opacity-transform(.2s)
+				background-color #fff
+
+
+		input
+			&:checked
+				+
+					+child-el(icon)
+						border-color transparent
+
+						+child-el(color)
+							transform translate3d(0,0,0.000001px) scale(1) rotate(0.000001deg)
+							z-index 1
+							
+							&:after
+								visible()
+								transform translate3d(-50%,-50%,0.000001px) scale(1) rotate(0.000001deg)

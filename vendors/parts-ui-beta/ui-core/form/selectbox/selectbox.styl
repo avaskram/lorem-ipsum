@@ -1,0 +1,139 @@
+///// selectbox
++theme(select)
+	height $input-size
+	width 1px
+	overflow hidden
+	position absolute
+	invisible()
+
+
++theme(selectbox)
+	position relative
+	z-index 1
+	select
+		position absolute
+		width 0
+		invisible()
+
+	&__arrow
+		position absolute
+		right $input-space
+		margin-top 0
+		opacity .3
+		text-sm()
+		flex-col-md()
+		position-y(0)
+		color $input-placeholder-color
+		transition opacity 0.2s ease 0s, transform .3s $quint 0s
+		transform translate3d(0,0,0.00002px) rotate(0.00001deg)
+		width 12px
+		overflow visible
+		transform-origin center center
+
+		+css-icon-angle-down(8px,2px,$base-color,44deg)
+			border-radius 1px
+			opacity 1
+			backface-visibility hidden
+
+
+	&__field
+		width 100%
+		position relative
+		cursor pointer
+		flex-row-md()
+		padding-left $input-space
+		padding-right ($input-space*2)
+		padding-top 2px
+		overflow hidden
+		user-select none
+
+
+	&__value
+		text-dots()
+		max-width 100%
+		width 100%
+		flex 1
+		overflow hidden
+		padding-right $input-space
+		text-left()
+
+		&--placeholder
+			color $input-placeholder-color
+
+	&__dropdown
+		dropdown()
+		dropdown-bottom(0)
+		transition opacity .1s ease 0s, transform .1s $quint 0s
+		width 100%
+		translated(0,-3px)
+		bg-light()
+		max-height 0
+		height 0
+		border-radius $card-radius
+		margin-y(3px)
+		scroll-wrap-y()
+		overflow-x hidden
+		box-shadow $card-shadow
+
+
+
+	&__list
+		dropdown-list()
+		invisible()
+		position relative
+
+
+	&__option
+		padding-top ($input-space*$input-scale*1.1) + (2*$rem-px)
+		padding-bottom ($input-space*$input-scale*1.1)
+		padding-x($input-space)
+		cursor pointer
+		transition background .15s ease 0s, color .15s ease 0s
+		line-height $line-height-base
+		flex-row-md()
+		hover-bg-gray()
+		position relative
+
+
+		&--current
+			pointer-events none
+			margin-x(0)
+			bg-theme()
+			text-color-light()
+
+	&__text
+		flex 1
+
+	&__icon
+		circle($rem-lg)
+		bg-cover()
+		margin-right $rem-md
+
+	&:hover
+		+child-el(arrow)
+			opacity .8
+
+	&--top
+		+child-el(dropdown)
+			top auto
+			bottom 100%
+			translated(0,3px)
+
+	&--opened
+		z-index 30
+
+		+child-el(dropdown)
+			visible-transform()
+			transition opacity .2s ease, transform .34s $quint 0s
+			height auto
+			max-height none
+			min-height 100px
+			z-index 30
+
+		+child-el(list)
+			visible()
+			z-index 29
+
+		+child-el(arrow)
+			transform translate3d(0,0,0.00002px) rotateX(180.00001deg)
+			opacity .8

@@ -1,0 +1,40 @@
+mixin current-page()
+  - var currentPage = []
+  - var baseUrl = ''
+  - var baseDir = ''
+  - var pageUrl = ''
+  - var contentData = ''
+  - var pageTitle = ''
+  
+  if pageName[0] != index
+    - pageUrl = baseUrl+baseDir+pageName[0]+'.html'
+    
+    for el,i in contentData
+      if el.name == pageName[0]
+        - pageIndex = [i]
+        - pageTitle = contentData[pageIndex[0]].title
+        - currentPage = [pageTitle]
+
+  if pageName[1] != index
+    - pageUrl = baseUrl+baseDir+pageName[0]+'/'+pageName[1]+'.html'
+    
+    if contentData[pageIndex[0]].items
+      for el,i in contentData[pageIndex[0]].items
+        if el.name == pageName[1]
+          - pageIndex = [pageIndex[0],i]
+          - pageTitle = contentData[pageIndex[0]].title
+          - subPageTitle = contentData[pageIndex[0]].items[pageIndex[1]].title
+          - currentPage = [pageTitle,subPageTitle]
+
+      if pageIndex[1] != undefined
+        - subPageTitle = contentData[pageIndex[0]].items[pageIndex[1]].title
+        - currentPage = [pageTitle,subPageTitle]
+  
+  if currentPage != ''
+    if currentPage[1] == undefined
+      - pageTitle = theme.name+' - '+ currentPage[0]
+    else
+      - pageTitle = theme.name+' - '+ currentPage[0] + ' / '+ currentPage[1]
+    
+  else
+    - pageTitle = theme.name+' - '+ content.index.title[docsLang]

@@ -1,0 +1,141 @@
+/// base
+same-sides(size)
+  width size
+  height size
+
+hard-width(w)
+  width w
+  max-width w
+  min-width w
+
+hard-height(h)
+  height h
+  max-height h
+  min-height h
+
+
+
+/// geometric figures
+///// square
+square(size)
+  same-sides(size)
+
+
+hard-square(size)
+  hard-width(size)
+  hard-height(size)
+
+
+reset-sides()
+  max-width none
+  max-height none
+  min-width auto
+  min-height auto
+
+
+
+///// circles
+circle(size)
+  border-radius 50%
+  hard-width(size)
+  hard-height(size)
+
+circle-fill(size,bg)
+  circle(size)
+  background-color bg
+
+
+circle-image(size)
+  circle(size)
+  overflow hidden
+  position relative
+  z-index 2
+  img
+    position relative
+    z-index 1
+
+circle-border(size,t,c)
+  circle(size)
+  border t solid c
+
+
+circle-image-border(size,t,c)
+  circle-image(size)
+  border t solid c
+
+circle-text(size)
+  circle(size)
+  text-align center
+  line-height size
+
+
+///// lines
+line-x(thick,color)
+  height thick
+  background-color color
+
+line-y(thick,color)
+  width thick
+  background-color color
+
+///// border arrows (triangles)
+border-arrow-right(w,h,c)
+  border-top (h/2) solid transparent
+  border-bottom (h/2) solid transparent
+  border-left w solid c
+  border-right 0
+
+border-arrow-left(w,h,c)
+  border-top (h/2) solid transparent
+  border-bottom (h/2) solid transparent
+  border-right w solid c
+  border-left 0
+
+border-arrow-up(w,h,c)
+  border-right (w/2) solid transparent
+  border-left (w/2) solid transparent
+  border-bottom h solid c
+  border-top 0
+
+border-arrow-down(w,h,c)
+  border-right (w/2) solid transparent
+  border-left (w/2) solid transparent
+  border-top h solid c
+  border-bottom 0
+
+
+border-arrow-top(w,h,c)
+  border-right (w/2) solid transparent
+  border-left (w/2) solid transparent
+  border-top h solid c
+  border-bottom 0
+
+border-arrow-bottom(w,h,c)
+  border-right (w/2) solid transparent
+  border-left (w/2) solid transparent
+  border-bottom h solid c
+  border-top 0
+
+
+//////// radius
+radius-base()
+  border-radius $radius
+radius-xs()
+  border-radius $radius-xs
+radius-sm()
+  border-radius $radius-sm
+radius-md()
+  border-radius $radius-md
+radius-lg()
+  border-radius $radius-lg
+radius-xl()
+  border-radius $radius-xl
+
+
+
+//////////// add modifiers
+proportion-types()
+	for mod in $proportions
+		&--{mod}
+			padding-top 0
+			padding-bottom $proportions[mod]

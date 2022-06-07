@@ -1,0 +1,5 @@
+mixin vk-target-px(code)
+  script(type="text/javascript").
+    !function(){var t=document.createElement("script");t.type="text/javascript",t.async=!0,t.src="https://vk.com/js/api/openapi.js?159",t.onload=function(){VK.Retargeting.Init(!{JSON.stringify(code)}),VK.Retargeting.Hit()},document.head.appendChild(t)}();
+  noscript
+    img(src="https://vk.com/rtrg?p="+code style="position:fixed; left:-999px;" alt="")

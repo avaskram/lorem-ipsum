@@ -1,0 +1,60 @@
+///// lists
+/////// marker lists
+list-item-base()
+  position relative
+  text-indent()
+
+list-item-circle(size,co)
+  padding-left unit($root-size + size)
+  list-item-base()
+
+  +before()
+    circle-fill(size,co)
+    position absolute
+    top ($text-indent/2)
+    left 0
+
+list-item-line(size,c)
+  padding-left ($root-size + size)
+  list-item-base()
+
+  +before()
+    position absolute
+    left 0
+    width size
+    top ($text-indent/2)
+    line-x(1px,c)
+
+
+list-item-num(size,color)
+  padding-left (size*2)
+  position relative
+  text-indent()
+
+  +before()
+    content counter(item, decimal) " "
+    counter-increment item
+    display block
+    position absolute
+    top 0
+    left 0
+    line-height size
+    text-align right
+    font-size size
+    width size
+    text-theme()
+
+marker-list-circle(w,c)
+  li
+    list-item-circle(w,c)
+
+marker-list-line(w,c)
+  li
+    list-item-line(w,c)
+
+marker-list-num(size,color)
+  counter-reset item
+  padding-left 0
+
+  li
+    list-item-num(size,color)

@@ -1,0 +1,6 @@
+.overflow
+  for item in visible hidden auto
+    &-{item}
+      overflow item
+      if item = auto
+        -webkit-overflow-scrolling touch

@@ -1,0 +1,71 @@
+/// gradients
+//////// from color1 to color2
+gradient-colors-x(c1,c2)
+  background linear-gradient(to right, c1, c2)
+
+gradient-colors-y(c1,c2)
+  background linear-gradient(to bottom, c1, c2)
+
+//////// from color to transparent
+gradient-color-left(c)
+  background linear-gradient(to right, alpha(c,1) 0%, alpha(c,0) 100%)
+gradient-color-right(c)
+  background linear-gradient(to left, alpha(c,1) 0%, alpha(c,0) 100%)
+gradient-color-top(c)
+  background linear-gradient(to bottom, alpha(c,1) 0%, alpha(c,0) 100%)
+gradient-color-bottom(c)
+  background linear-gradient(to bottom, alpha(c,0) 0%, alpha(c,1) 100%)
+
+//////// light
+gradient-light-left()
+  gradient-color-left($light-color)
+gradient-light-right()
+  gradient-color-right($light-color)
+gradient-light-top()
+  gradient-color-top($light-color)
+gradient-light-bottom()
+  gradient-color-bottom($light-color)
+
+//////// dark
+gradient-dark-left()
+  gradient-color-left($dark-color)
+gradient-dark-right()
+  gradient-color-right($dark-color)
+gradient-dark-top()
+  gradient-color-top($dark-color)
+gradient-dark-bottom()
+  gradient-color-bottom($dark-color)
+
+//////// white
+gradient-white-left()
+  gradient-color-left(#fff)
+gradient-white-right()
+  gradient-color-right(#fff)
+gradient-white-top()
+  gradient-color-top(#fff)
+gradient-white-bottom()
+ gradient-color-bottom(#fff)
+
+//////// black
+gradient-black-left()
+  gradient-color-left(#000)
+gradient-black-right()
+  gradient-color-right(#000)
+gradient-black-top()
+  gradient-color-top(#000)
+gradient-black-bottom()
+ gradient-color-bottom(#000)
+
+
+
+//////// theme
+gradient-theme()
+  gradient-colors-left($theme-gradient-start,$theme-gradient-end)
+gradient-theme-left()
+  gradient-color-left($theme-color)
+gradient-theme-right()
+  gradient-color-right($theme-color)
+gradient-theme-top()
+  gradient-color-top($theme-color)
+gradient-theme-bottom()
+  gradient-theme-bottom($theme-color)

@@ -1,0 +1,21 @@
+.flex
+  ///// flexbox child size
+  for num in 0..13
+    &-{num}
+      flex num !important
+
+  //////// rows
+  &-row
+    flex-row()
+
+    for type in md bottom center md-center stretch justify
+      &-{type}
+        flex-row-{type}()
+
+  //////// columns
+  &-col
+    flex-col()
+
+    for type in md bottom center md-center stretch justify
+      &-{type}
+        flex-col-{type}()

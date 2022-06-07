@@ -1,0 +1,56 @@
+/// content elements
+b,
+strong
+  text-bold()
+i,
+em
+  text-italic()
+p
+  text-indent()
+
+sup
+  inline-block-top()
+  font-size 50%
+  line-height 0
+  position relative
+  margin-top 1.3em
+
+sub
+  inline-block-bottom()
+  font-size 50%
+  line-height 0
+  position relative
+  margin-top 0
+
+a
+  color $link-color
+  text-decoration none
+  cursor pointer
+
+  &:hover
+    text-decoration none
+
+  &:active
+    text-decoration none
+
+  &:focus
+    text-decoration none
+
+img
+  display block
+  max-width 100%
+  height auto
+
+hr
+  border 0
+  background-color $gray-border
+  height 1px
+  display block
+  margin-y($text-indent)
+
+table
+  table-styled()
+
+ul
+  padding-left 0
+  margin 0

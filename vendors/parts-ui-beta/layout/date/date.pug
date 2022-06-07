@@ -1,0 +1,16 @@
+- var date = new Date();
+- function prettyDate(dateString,type){
+  - var d = date.getDate(dateString);
+  - var monthNums = ["01","02","03","04","05","06","07","08","09","10","11","12"];
+  - var m = monthNums[date.getMonth()];
+  - var y = date.getFullYear();
+  - var h = date.getHours();
+  - var s = date.getSeconds();
+  - var min = date.getMinutes();
+  - var version = d+m+y+h+min+s;
+  - var yearMonthDay = y+'-'+m+'-'+d;
+  if type == v
+    - return version;
+  if type == ymd
+    - return yearMonthDay;
+-}

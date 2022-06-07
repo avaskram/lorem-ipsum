@@ -1,0 +1,46 @@
+///// link styles
++theme(link)
+  link-border()
+  link-border-line()
+
+  for type in $link-border-types
+    if type != deep
+      &--{type}
+        link-border-{type}()
+
+    else
+      &--deep
+        text-color-base()
+        border-bottom-color $theme-color
+
+        for c in $link-border-colors
+          &^[0]--{c}
+            if c == 'light'
+              text-light()
+            else
+              text-dark()
+
+            if c == 'dark' || c == 'gray'
+              border-bottom-color $+(c)
+              &:hover,
+              a:hover &
+                border-bottom-color $+(c)
+                color $+(c)
+
+
+            else
+              border-bottom-color $+(c)+(-color)
+
+              &:hover,
+              a:hover &
+                border-bottom-color $+(c)+(-color)
+                color $+(c)+(-color)
+
+  // for type in $link-border-tones
+  //   &--{type}
+  //     link-border-{type}()
+
+  //////// link colors
+  for type in $link-border-colors
+    &--{type}
+      link-border-{type}()

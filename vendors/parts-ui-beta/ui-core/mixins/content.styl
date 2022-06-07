@@ -1,0 +1,31 @@
+/// content elements
+///// article base styles
+content-styles()
+  a
+    link-border()
+  ul
+  ol
+    margin-y($text-indent)
+  ul
+    marker-list-line(20px,$theme-color)
+  ol
+    marker-list-num($size-h3,$theme-color)
+
+  blockquote
+    margin-x(0)
+    maring-y($title-indent-top)
+
+
+
+///// scroll wrap (useful for mobile devices)
+scroll-wrap()
+  overflow auto
+  -webkit-overflow-scrolling touch
+
+scroll-wrap-x()
+  overflow-x auto
+  -webkit-overflow-scrolling touch
+
+scroll-wrap-y()
+  overflow-y auto
+  -webkit-overflow-scrolling touch

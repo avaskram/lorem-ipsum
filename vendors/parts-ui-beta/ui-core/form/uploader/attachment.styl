@@ -1,0 +1,60 @@
++theme(attachment)
+  input
+    opacity 0
+    position absolute
+    right 0
+    top 0
+    font-size 100rem
+    cursor pointer
+    z-index 2
+
+  &__progress
+    position relative
+    overflow hidden
+
+  &__icon
+    height 145px
+    width 97px
+    color $theme-color
+    border 3px solid $theme-color
+    padding 4px 20px 0
+    border-radius 10px
+    display flex
+    flex-direction column
+    justify-content center
+    opacity .3
+
+    +before()
+      width 28px
+      height 4px
+      background-color $theme-color
+      margin-bottom 9px
+
+    +after()
+      height 4px
+      background-color $theme-color
+      margin-bottom 9px
+
+    span
+      display block
+      
+      +before()
+        height 4px
+        background-color $theme-color
+        margin-bottom 9px
+
+      +after()
+        height 4px
+        background-color $theme-color
+        margin-bottom 9px
+
+  &__name
+    text-md()
+    margin-bottom 1rem
+
+  &__close
+    cursor pointer
+
+  &__data
+    text-sm()
+    color $gray-color

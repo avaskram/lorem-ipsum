@@ -1,0 +1,43 @@
+/// placeholder color for inputs
+placeholder-color(c)
+  placeholder-color-rule(c)
+    color c
+    opacity 1
+
+  &::-webkit-input-placeholder
+   placeholder-color-rule(c)
+  &:-moz-placeholder
+    placeholder-color-rule(c)
+  &::-moz-placeholder
+    placeholder-color-rule(c)
+  &:-ms-input-placeholder
+    placeholder-color-rule(c)
+
+
+/// colors palette bem modifiers
+////// text-colors
+palette-state-colors()
+  for mod in $colors.state
+    &--{mod}
+      color $+(mod)+(-color)
+
+palette-tone-colors()
+  for mod in $colors.tone
+    &--{mod}
+      color $+(mod)
+
+palette-gray-colors()
+  for mod in $colors.gray
+    &--{mod}
+      color $+(mod)
+
+palette-dark-colors()
+  for mod in $colors.dark
+    &--{mod}
+      color $+(mod)
+
+palette-colors()
+  palette-state-colors()
+  palette-tone-colors()
+  palette-gray-colors()
+  palette-dark-colors()
