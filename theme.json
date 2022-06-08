@@ -10,10 +10,10 @@
 			"name": "lorem"
 		},
 		"directories": {
-			"fonts": "./fonts/",
-			"images": "./images/",
-			"css": "./css/",
-			"js": "./js/"
+			"fonts": "/fonts/",
+			"images": "/images/",
+			"css": "/css/",
+			"js": "/js/"
 		}
 	}
 }
